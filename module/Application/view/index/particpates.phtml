@@ -1,0 +1,94 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main class="content" id="content" role="main">
+    <div class="container space-2 space-md-2">
+        <div class="row">
+            <div class="col-sm-10 col-md-10 col-lg-10 ml-md-auto mr-md-auto">
+                 
+                <?php
+                include("topedit.phtml"); 
+                ?> 
+                
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <?php 
+                        include("menu.phtml");
+                        ?>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                        <!-- Card -->
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <h3 class="h3 mt-2"><?=$this->translate('Participants'); ?></h3> 
+                                    </div>
+                                    <div class="col text-right">
+                                        <?php
+                                        if(!empty($listData['total'])){   
+                                        ?>
+                                        <a href="<?=$this->url('home').$this->lang;?>/particpates/<?=$id;?>/?page=<?=$page;?>&act=exportcsv" class="btn btn-info btn-xs mt-3"><?=$this->translate('Export participants as CSV'); ?></a>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>   
+                                 
+                                <div class="table-responsive"> 
+                		        	<table class="table table-light">
+                					  <thead>  
+                					    <tr>
+                					      <th><?=$this->translate('Firt & Last Name'); ?></th>
+                					      <th><?=$this->translate('Email'); ?></th> 
+                					      <th><?=$this->translate('Contribution date'); ?></th>
+                					      <th><?=$this->translate('Contribution amount'); ?></th>
+                					    </tr>    
+                					  </thead>
+                					  <tbody>
+                					  	<?php
+                					  	//$page = 1;
+                					  	$count = 1;
+                					  	if($page>1){ 
+                					  		$count = ((($pageshow*$page)+$count)-$pageshow);	
+                					  	}
+                					  	if(!empty($listData['total'])){   
+                					  		foreach($listData['data'] as $key=>$val){  
+                					  	?> 
+                						    <tr>
+                						      <td><?=$val['name'];?></td>
+                						      <td><?=$val['email'];?></td>  
+                						      <td><?=date("d F Y H:i", strtotime($val['createdate']));?></td>  
+                						      <td class="text-right"><?=number_format($val['amount'],2);?> <?=$this->translate('THB'); ?></td>
+                						    </tr>   
+                					    <?php 
+                					    		$count++; 
+                					  		}
+                					    }else{
+                					    ?>
+                					    	<tr>
+                					    		<td colspan="4" align="center"><?=$this->translate('No Data'); ?></td>
+                					    	</tr>
+                					    <?php
+                					    }
+                					    ?>
+                					  </tbody>
+                					</table>
+                				</div>
+                				<div class="row">
+                					<div class="col-12 col-md-12 text-center pb-5">
+                						<?php
+                						print_r($pagination); 
+                						?>
+                					</d>
+                				</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== -->

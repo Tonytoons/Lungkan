@@ -1,0 +1,102 @@
+<!-- Breadcrumb Section -->
+<div class="bg-primary">
+    <div class="container space-top-1 pb-3">
+        <div class="row">
+            <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+                <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+
+                    <?php
+                    if(0){ 
+                    ?>
+                    <!-- Breadcrumb -->
+                    <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+                        <li class="breadcrumb-item"><a class="breadcrumb-link" href="../home/index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a class="breadcrumb-link" href="dashboard.html">Account</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                    </ol>
+                    <!-- End Breadcrumb -->
+                    <?php
+                    }
+                    ?>
+
+                    <!-- Breadcrumb Nav Toggle Button -->
+                    <div class="d-lg-none">
+                        <button type="button" class="navbar-toggler btn u-hamburger u-hamburger--white" aria-label="Toggle navigation" aria-expanded="false" aria-controls="breadcrumbNavBar" data-toggle="collapse" data-target="#breadcrumbNavBar">
+                          <span id="breadcrumbHamburgerTrigger" class="u-hamburger__box">
+                            <span class="u-hamburger__inner"></span>
+                          </span>
+                        </button>
+                    </div>
+                    <!-- End Breadcrumb Nav Toggle Button -->
+                </div>
+            </div>
+
+            <div class="col-lg-7 order-lg-1">
+                <!-- User Info -->
+                <div class="media d-block d-sm-flex align-items-sm-center">
+                    <div class="u-lg-avatar position-relative mb-3 mb-sm-0 mr-3">
+                        <?php
+                        if(!empty($this->Users->image)){
+                        ?>
+                        <img class="img-fluid rounded-circle" src="<?=$this->Users->image;?>" alt="<?=!empty($this->Users->name)?$this->Users->name:'';?>">
+                        <?php
+                        }else{  
+                        ?>
+                        <img class="img-fluid rounded-circle" src="<?=$this->url('home');?>assets/img/avatar-100.jpg" alt="<?=!empty($this->Users->name)?$this->Users->name:'';?>">
+                        <?php
+                        } 
+                        ?>
+                        <span class="badge badge-md badge-outline-success badge-pos badge-pos--bottom-right rounded-circle">
+                          <span class="fas fa-check"></span>
+                        </span>
+                    </div>
+                    <div class="media-body">
+                        <h1 class="h3 text-white font-weight-medium mb-1">
+                            <?=$detail['name'];?>
+                        </h1>
+                        <span class="d-block text-white"><?=$detail['email'];?></span>
+                    </div>
+                </div>
+                <!-- End User Info -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container space-bottom-1 space-bottom-lg-0">
+        <div class="d-lg-flex justify-content-lg-between align-items-lg-center">
+            <!-- Navbar -->
+            <div class="u-header u-header-left-aligned-nav u-header--bg-transparent-lg u-header--white-nav-links z-index-4">
+                <div class="u-header__section bg-transparent">
+                    <nav class="js-breadcrumb-menu navbar navbar-expand-lg u-header__navbar u-header__navbar--no-space hs-menu-initialized hs-menu-horizontal">
+                        <div id="breadcrumbNavBar" class="collapse navbar-collapse u-header__navbar-collapse">
+                            <ul class="navbar-nav u-header__navbar-nav">
+                                <!-- Others -->
+                                <li class="nav-item u-header__nav-item">
+                                    <a class="nav-link u-header__nav-link" href="<?=$this->url('home').$this->lang;?>/mypot/"><?=$this->translate('My money pots'); ?></a>
+                                </li>
+                                <!-- Others -->
+                                <li class="nav-item u-header__nav-item">
+                                    <a class="nav-link u-header__nav-link" href="<?=$this->url('home').$this->lang;?>/profile/"><?=$this->translate('Account Settings'); ?></a>
+                                </li>
+                                <li class="nav-item u-header__nav-item">
+                                    <a class="nav-link u-header__nav-link" href="javasrcipt:void(0);" onclick="logOut();"><?=$this->translate('Logout'); ?></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- End Navbar -->
+            
+            <div class="ml-lg-auto">
+                <!-- Button -->
+                <a class="btn btn-sm btn-soft-white transition-3d-hover" href="<?=$this->url('home').$this->lang;?>/create/">
+                  <span class="fas fa-plus small mr-2"></span>
+                  <?=$this->translate('Create a pot'); ?>
+                </a>
+                <!-- End Button -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumb Section --> 

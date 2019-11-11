@@ -1,0 +1,23 @@
+<!--<div class="h5">Manage my pot</div>-->
+<div class="list-group mb-3"> 
+    <!--<li> Manage my pot </li>-->
+      <li class="list-group-item list-group-item-action list-group-item-primary" style="height: 50px; padding-top: 14px; cursor: default;"><?=$this->translate('Manage my pot'); ?></li>
+
+    <a href="<?=$this->url('home').$this->lang;?>/edit/<?=$id;?>/" class="list-group-item list-group-item-action <?=($action=='edit')?'active':''?>"><?=$this->translate('Edit'); ?></a>
+    <a href="<?=$this->url('home').$this->lang;?>/setting/<?=$id;?>/" class="list-group-item list-group-item-action <?=($action=='setting')?'active':''?>"><?=$this->translate('Settings'); ?></a>
+    <a href="<?=$this->url('home').$this->lang;?>/invite/<?=$id;?>/" class="list-group-item list-group-item-action <?=($action=='invite')?'active':''?>"><?=$this->translate('Invite'); ?></a>
+    <a href="<?=$this->url('home').$this->lang;?>/particpates/<?=$id;?>/" class="list-group-item list-group-item-action <?=($action=='particpates')?'active':''?>"><?=$this->translate('Participants'); ?></a>
+    <a href="<?=$this->url('home').$this->lang;?>/invitelist/<?=$id;?>/" class="list-group-item list-group-item-action <?=($action=='invitelist')?'active':''?>"><?=$this->translate('Manage Invitations'); ?></a>
+   
+    <a href="<?=$this->url('home').$this->lang;?>/transferfund/<?=$id;?>/" class="list-group-item list-group-item-action <?=($action=='transferfund')?'active':''?>"><?=$this->translate('Transfer Fund'); ?></a>
+     
+    <a href="javascript:void(0);" onclick="deleteMypot();" class="list-group-item list-group-item-action"><?=$this->translate('Delete'); ?></a>
+    <?php 
+    if($detail['status']==1){  
+    ?>
+    <a href="javascript:void(0);" onclick="closeMypot();" class="list-group-item list-group-item-action"><?=$this->translate('Close my pot'); ?></a> 
+    <?php
+    } 
+    ?>
+</div>    
+  

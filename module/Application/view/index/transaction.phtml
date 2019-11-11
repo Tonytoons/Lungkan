@@ -1,0 +1,210 @@
+<script src="https://cdn.omise.co/omise.js.gz"></script>
+<!-- ========== MAIN CONTENT ========== -->
+<main class="content" id="content" role="main">
+    <div class="container space-2 space-md-2">
+        <div class="row">
+            <div class="col-sm-10 col-md-10 col-lg-10 ml-md-auto mr-md-auto">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+
+                      <?php
+                      include("topedit.phtml"); 
+                      ?> 
+
+                    </div>
+                </div>
+                
+                <div class="row">
+                  
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <!-- Card -->
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+
+                                <div class="row"> 
+                                    <div class="col-sm-11 col-md-11 col-lg-11 ml-md-auto mr-md-auto">
+
+                                        
+                                        <div class="row">
+                                          <div class="col-sm-12 col-md-12 col-lg-12 mt-5 ml-md-auto mr-md-auto">
+                                              <h5 class="form-text mb-5 mt-3"><?=$this->translate('Finalize your transaction of');?> <?=$amount;?> <?=$this->translate('THB');?></h5>
+                                          </div>
+                                          <div class="col-12 col-sm-8 col-md-8 col-lg-8 ml-md-auto mr-md-auto">
+                                            <form class="js-validate mx-md-auto" name="creditCard" id="creditCard" action="" method="post" novalidate="novalidate">
+                                              <div class="row text-left">
+                                                  <?php
+                                                  if($type==1){
+                                                  ?>
+                                                  <input type="hidden" name="token" id="token" /> 
+                                                  
+                                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="form-group">
+                                                      <input type="text" class="form-control" data-name="nameOnCard"  name="fullname"  id="fullname"  value="<?=$fullname;?>" data-msg="<?=$this->translate('Please enter full name.');?>" placeholder="<?=$this->translate('Full Name');?>">
+                                                    </div> 
+                                                  </div> 
+                                                  
+                                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="form-group">
+                                                      <input type="number" class="form-control" data-name="cardNumber"  name="cardNumber"  id="cardNumber" data-msg="<?=$this->translate('Please enter card number.');?>" placeholder="••••••••••••••••">
+                                                    </div> 
+                                                  </div> 
+                                                  <div class="col-12 col-sm-12 col-md-6 col-lg-6"> 
+                                                    <div class="form-group">
+                                                      <select class="form-control"name="month"  id="month"  name="expiry-month" data-msg="<?=$this->translate('Please select expiry month.');?>">
+                                                        <option value=""><?=$this->translate('Expiry month');?></option> 
+                                                        <?php 
+                                                        for($i=1; $i<=12; $i++){   
+                                                        ?>
+                                                        <option value="<?=$i;?>"><?=$i;?></option>
+                                                        <?php
+                                                        } 
+                                                        ?>
+                                                      </select>
+                                                    </div>
+                                                  </div>
+                                                  
+                                                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group"> 
+                                                      <select class="form-control" name="year"  id="year"  data-msg="<?=$this->translate('Please select expiry year.');?>">
+                                                        <option value=""><?=$this->translate('Expiry year');?></option> 
+                                                        <?php
+                                                        for($i=date("Y"); $i<=date("Y")+10; $i++){     
+                                                        ?>
+                                                        <option value="<?=$i;?>"><?=$i;?></option>
+                                                        <?php
+                                                        } 
+                                                        ?>
+                                                      </select>
+                                                    </div>
+                                                  </div> 
+                                                  
+                                                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-group">
+                                                      <input type="number" class="form-control" name="scode"  id="scode"  data-msg="<?=$this->translate('Please enter security code.');?>" placeholder="<?=$this->translate('Security code');?>">
+                                                    </div>
+                                                  </div>
+                                                  
+                                                  <?php
+                                                  }else{ 
+                                                  ?> 
+                                                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 ml-md-auto mr-md-auto">
+                                                      <div class="custom-control custom-radio mb-3">
+                                                        <input type="radio" id="bank1" name="bank" value="internet_banking_bay" class="custom-control-input" checked>
+                                                        <label class="custom-control-label" for="bank1">
+                                                          <img src="<?=$this->url('home');?>assets/img/icon-bank/ayudhya-32x32.png" class="icon-bank">
+                                                          <span><?=$this->translate('Krungsri Online');?></span>
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 ml-md-auto mr-md-auto">
+                                                      <div class="custom-control custom-radio  mb-3">
+                                                        <input type="radio" id="bank2" name="bank" value="internet_banking_bbl" class="custom-control-input">
+                                                        <label class="custom-control-label" for="bank2">
+                                                          <img src="<?=$this->url('home');?>assets/img/icon-bank/bbl-32x32.png" class="icon-bank">
+                                                          <span><?=$this->translate('Bualuang iBanking');?></span>
+                                                        </label>
+                                                      </div>
+                                                    </div> 
+                                                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 ml-md-auto mr-md-auto">
+                                                      <div class="custom-control custom-radio mb-3">
+                                                        <input type="radio" id="bank3" name="bank" value="internet_banking_ktb" class="custom-control-input">
+                                                        <label class="custom-control-label" for="bank3">
+                                                          <img src="<?=$this->url('home');?>assets/img/icon-bank/ktb-35x35.png" class="icon-bank">
+                                                          <span><?=$this->translate('KTB Netbank');?></span>
+                                                        </label>   
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 ml-md-auto mr-md-auto">
+                                                      <div class="custom-control custom-radio  mb-3">
+                                                        <input type="radio" id="bank4" name="bank" value="internet_banking_scb" class="custom-control-input">
+                                                        <label class="custom-control-label" for="bank4">
+                                                          <img src="<?=$this->url('home');?>assets/img/icon-bank/scb-32x32.png" class="icon-bank">
+                                                          <span><?=$this->translate('SCB Easy Net');?></span>
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                  <?php
+                                                  }
+                                                  ?>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 ml-md-auto mr-md-auto text-center mt-5 mb-5"> 
+                                                    <button type="submit" class="btn btn-primary btn-block btn-confirm" name=""><?=$this->translate('Confirm transaction');?></button>
+                                                </div>
+                                              </div>
+                                            </form> 
+                                          </div>  
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Card -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript">  
+
+Omise.setPublicKey('<?=$omise_config['public_key'];?>');
+  
+$("form[name='creditCard']").validate({ 
+  rules: { 
+    fullname:"required", 
+    cardNumber:{
+      required: true,
+      minlength: 13
+    },  
+    month:"required",
+    year:"required",
+    scode:{ 
+      required: true,
+      minlength: 3,
+      maxlength: 6,
+    }
+  },   
+  messages: { 
+    fullname:$('#fullname').data('msg'),
+    cardNumber: $('#cardNumber').data('msg'),
+    month: $('#month').data('msg'), 
+    year: $('#year').data('msg'),
+    scode: $('#scode').data('msg')
+  },    
+  submitHandler: function(card_form) {
+    
+    btn_loader = $('.btn-confirm');  
+    $('.btn-confirm').buttonLoader('start'); 
+   
+    var card = { 
+      name: card_form.fullname.value,
+      number: card_form.cardNumber.value,
+      expiration_month: card_form.month.value,
+      expiration_year: card_form.year.value,
+      security_code: card_form.scode.value,
+    } 
+    
+    Omise.createToken('card', card, function(statusCode, response) {
+      console.log(statusCode); 
+      console.log(response);  
+      if (statusCode == 200) {  
+        card_form.token.value = response.id;
+        card_form.submit();  
+      } else {
+        alert(response.code + ': ' + response.message)
+      }
+    }); 
+    return false;  
+    
+  }, 
+  highlight: function(element, errorClass, validClass) {
+    $(element).removeClass('success-class').addClass('error-class');
+  },
+  unhighlight: function(element, errorClass, validClass) {
+    $(element).removeClass('error-class').addClass('success-class');
+  }
+}); 
+
+</script>

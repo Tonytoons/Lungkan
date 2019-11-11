@@ -1,0 +1,5 @@
+{
+    "require": {
+        "radnan/rdn-csv": "2.*"
+    }
+}

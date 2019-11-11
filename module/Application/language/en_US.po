@@ -1,0 +1,744 @@
+#: -header
+
+msgid "Prizzit"
+msgstr "Prizzit"
+ 
+msgid "Projects & Causes"
+msgstr "Projects & Causes"
+ 
+msgid "Category"
+msgstr "Category"
+ 
+msgid "How does it work ?"
+msgstr "How does it work ?"
+ 
+msgid "Login"
+msgstr "Login"
+ 
+msgid "Logout"
+msgstr "Logout"
+ 
+msgid "Create a pot"
+msgstr "Create a pot"
+
+#: -footer
+
+msgid "About"
+msgstr "About"
+ 
+msgid "Project"
+msgstr "Project"
+ 
+msgid "Contact Us"
+msgstr "Contact Us"
+ 
+msgid "Resources"
+msgstr "Resources"
+ 
+msgid "We are driven to deliver results for all your businesses."
+msgstr "We are driven to deliver results for all your businesses."
+ 
+msgid "Terms"
+msgstr "Terms"
+ 
+msgid "Privacy"
+msgstr "Privacy"
+ 
+msgid "Help"
+msgstr "Help"
+ 
+msgid "Download on the"
+msgstr "Download on the"
+ 
+msgid "App Store"
+msgstr "App Store"
+ 
+msgid "Get it on"
+msgstr "Get it on"
+ 
+msgid "Google Play"
+msgstr "Google Play"
+ 
+msgid "© Prizzit. 2019 Htmlstream. All rights reserved."
+msgstr "© Prizzit. 2019 Htmlstream. All rights reserved."
+
+#: - popup login  
+
+msgid "Login to manage your account."
+msgstr "Login to manage your account."
+ 
+msgid "Signin With Facebook"
+msgstr "Signin With Facebook"
+ 
+msgid "Signin With Line"
+msgstr "Signin With Line"
+ 
+msgid "or with your email"
+msgstr "or with your email"
+ 
+msgid "Email address"
+msgstr "Email address"
+ 
+msgid "Please enter a valid email address."
+msgstr "Please enter a valid email address."
+ 
+msgid "Forgot Password?"
+msgstr "Forgot Password?"
+ 
+msgid "Password"
+msgstr "Password"
+ 
+msgid "Your password is invalid. Please try again."
+msgstr "Your password is invalid. Please try again."
+ 
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+ 
+msgid "Signup"
+msgstr "Signup"
+ 
+msgid "Get Started"
+msgstr "Get Started"
+ 
+msgid "Fill out the form to get started."
+msgstr "Fill out the form to get started."
+
+msgid "Signup"
+msgstr "Signup"
+
+msgid "Signup With Facebook"
+msgstr "Signup With Facebook"
+ 
+msgid "Signup With Line"
+msgstr "Signup With Line"
+ 
+msgid "Name"
+msgstr "Name"
+ 
+msgid "Please enter full name."
+msgstr "Please enter full name."
+ 
+msgid "Your password is invalid. Please try again."
+msgstr "Your password is invalid. Please try again."
+ 
+msgid "Confirm password"
+msgstr "Confirm password"
+ 
+msgid "Password does not match the confirm password."
+msgstr "Password does not match the confirm password."
+ 
+msgid "Already have an account?"
+msgstr "Already have an account?"
+ 
+msgid "Please accept our Terms and Conditions."
+msgstr "Please accept our Terms and Conditions."
+ 
+msgid "I agree to the"
+msgstr "I agree to the"
+ 
+msgid "Terms and Conditions"
+msgstr "Terms and Conditions"
+
+#: -home
+
+msgid "Create a money pot for"
+msgstr "Create a money pot for"
+
+msgid "Group Gift - Project & Causes - Common Expenses"
+msgstr "Group Gift - Project & Causes - Common Expenses"
+ 
+msgid "Create a money for your money pot"
+msgstr "Create a money for your money pot"
+ 
+msgid "CREATE"
+msgstr "CREATE"
+ 
+msgid "Please enter  a money for your money pot"
+msgstr "Please enter  a money for your money pot"
+
+msgid "Create a money pot for anyting you can think of"
+msgstr "Create a money pot for anyting you can think of"
+
+#: -breadcrumb
+ 
+msgid "My money pots"
+msgstr "My money pots"
+ 
+msgid "Account Settings"
+msgstr "Account Settings"
+
+#: -category-list
+ 
+msgid "Discover social causes you can support"
+msgstr "Discover social causes you can support"
+ 
+msgid "category list text intro"
+msgstr "Discover social causes you can support"
+
+#: -Category
+ 
+msgid "All"
+msgstr "All"
+
+msgid "You wish us"
+msgstr "You wish us"
+ 
+msgid "to talk about"
+msgstr "to talk about"
+
+msgid "your project"
+msgstr "your project"
+
+#: -Contact us
+
+msgid "How can Front assistants help you?"
+msgstr "How can Front assistants help you?"
+ 
+msgid "We'd love to talk about how we can help you."
+msgstr "We'd love to talk about how we can help you."
+
+msgid "Tell us"
+msgstr "Tell us"
+ 
+msgid "about yourself"
+msgstr "about yourself"
+ 
+msgid "Whether you have questions or you would just like to say hello, contact us."
+msgstr "Whether you have questions or you would just like to say hello, contact us."
+
+msgid "Please enter name."
+msgstr "Please enter name."
+ 
+msgid "Subject"
+msgstr "Subject"
+ 
+msgid "Please enter subject."
+msgstr "Please enter subject."
+ 
+msgid "Message"
+msgstr "Message"
+
+msgid "Please enter message."
+msgstr "Please enter message."
+ 
+msgid "Send Contact"
+msgstr "Send Message"
+ 
+msgid "+66 3444-4479"
+msgstr "+66 3444-4479"
+
+#: -contactinfo
+ 
+msgid "Oops! Something went wrong."
+msgstr "Oops! Something went wrong."
+
+msgid "Contact information"
+msgstr "Contact information"
+
+msgid "First name"
+msgstr "First name"
+
+msgid "Last name"
+msgstr "Last name"
+
+msgid "Please enter first name."
+msgstr "Please enter first name."
+
+msgid "Please enter Last name."
+msgstr "Please enter Last name."
+
+msgid "Contribution information"
+msgstr "Contribution information"
+
+msgid "Enter contribution amount."
+msgstr "Enter contribution amount."
+
+msgid "Credit / Debit Cards"
+msgstr "Credit / Debit Cards"
+
+msgid "Internet Banking"
+msgstr "Internet Banking"
+
+msgid "Go Back"
+msgstr "Go Back"
+
+msgid "Participate"
+msgstr "Participate"
+
+#: -create
+
+msgid "Your money pot"
+msgstr "Your money pot"
+
+msgid "Name of the money pot"
+msgstr "Name of the money pot"
+
+msgid "Plase enter name of your pot"
+msgstr "Plase enter name of your pot."
+
+msgid "Name of the organizer"
+msgstr "Name of the organizer"
+
+msgid "Organizer by"
+msgstr "Organizer by"
+
+msgid "Plese enter organizer"
+msgstr "Plese enter organizer."
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Event date"
+msgstr "Event date"
+
+msgid "Plese select event date."
+msgstr "Plese select event date."
+
+msgid "Plese select category."
+msgstr "Plese select category."
+
+msgid "Sub Category"
+msgstr "Sub Category"
+
+msgid "Plese select sub category."
+msgstr "Plese select sub category."
+
+msgid "Description"
+msgstr "Descriptions"
+
+msgid "Plese enter description."
+msgstr "Plese enter description."
+
+msgid "Cover picture"
+msgstr "Cover picture"
+
+msgid "Plese select cover picture"
+msgstr "Plese select cover picture."
+
+msgid "Crop"
+msgstr "Crop"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Click in this area to select your cover files here."
+msgstr "Click in this area to select your cover files here."
+
+msgid "Albums"
+msgstr "Photo album"
+
+msgid "Create my pot"
+msgstr "Create my pot"
+
+#: -edit
+
+msgid "Edit my pot"
+msgstr "Edit my pot"
+
+#: -forgot pass
+
+msgid "New password"
+msgstr "New password" 
+
+msgid "Enter your password below and we'll get you back on login."
+msgstr "Enter your password below and we'll get you back on login." 
+
+msgid "Your password is invalid. Please try again."
+msgstr "Your password is invalid. Please try again." 
+
+msgid "Back to sign in"
+msgstr "Back to sign in" 
+
+msgid "Change password"
+msgstr "Change password" 
+
+msgid "forgot password has expired."
+msgstr "forgot password has expired." 
+
+msgid "Request Reset Link"
+msgstr "Request Reset Link" 
+
+#: -view
+msgid "collected"
+msgstr "collected"
+
+msgid "Contribute"
+msgstr "Contribute" 
+
+msgid "View my pot"
+msgstr "View pot" 
+
+msgid "Organized for"
+msgstr "Organized for"
+
+msgid "Invite your friends to participate"
+msgstr "Invite your friends to participate" 
+
+msgid "Messages"
+msgstr "Messages" 
+
+msgid "Comments"
+msgstr "Comments" 
+
+msgid "Loading..."
+msgstr "Loading..." 
+
+msgid "Payment are secured using omise.co"
+msgstr "Payment are secured using omise.co" 
+
+msgid "participants"
+msgstr "participants" 
+
+msgid "days left"
+msgstr "days left" 
+
+msgid "Participants"
+msgstr "Participants" 
+
+msgid "THB"
+msgstr "THB"
+
+msgid "Manage my pot"
+msgstr "Manage my pot" 
+
+msgid "Edit"
+msgstr "Edit" 
+
+msgid "Settings"
+msgstr "Settings" 
+
+msgid "Invite"
+msgstr "Invite" 
+
+msgid "Manage Invitations"
+msgstr "Manage Invitations" 
+
+msgid "Transfer Fund"
+msgstr "Transfer Fund" 
+
+msgid "Delete"
+msgstr "Delete" 
+
+msgid "Close my pot"
+msgstr "Close my pot"
+
+#: -invite
+
+msgid "Send invite by email."
+msgstr "Send invite by email." 
+
+msgid "Please enter email separated by coma"
+msgstr "Please enter email separated by coma" 
+
+msgid "Remind in 3 days"
+msgstr "Remind in 3 days" 
+
+msgid "Remind in 1 week"
+msgstr "Remind in 1 week" 
+
+msgid "Send invite"
+msgstr "Send invite" 
+
+msgid "Invite your friends to participate"
+msgstr "Invite your friends to participate" 
+
+#: -invite list
+
+msgid "Manage invitations"
+msgstr "Manage invitations" 
+
+msgid "Checkbox"
+msgstr "Checkbox" 
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Invited on"
+msgstr "Invited on" 
+
+msgid "Remind"
+msgstr "Remind" 
+
+msgid "Participant"
+msgstr "Participant" 
+
+#: -items list
+
+msgid "Total collected:"
+msgstr "Total collected:" 
+
+msgid "Participants:"
+msgstr "Participants:" 
+
+msgid "Created on:"
+msgstr "Created on:" 
+
+#: -project
+
+msgid "Donate to social causes & projects"
+msgstr "Donate to social causes & projects" 
+
+#: -my pot
+
+msgid "projects found"
+msgstr "projects found"
+
+#: -particpates
+
+msgid "Export participants as CSV"
+msgstr "Export participants as CSV" 
+
+msgid "Firt & Last Name"
+msgstr "Firt & Last Name"
+
+msgid "Contribution date"
+msgstr "Contribution date"
+
+msgid "Contribution amount"
+msgstr "Contribution amount" 
+
+msgid "No Data"
+msgstr "No data yet"
+
+#: -profile
+
+msgid "Upload New Picture"
+msgstr "Upload New Picture" 
+
+msgid "Name EN"
+msgstr "name english"
+
+msgid "Enter your name EN."
+msgstr "Enter your name english." 
+
+msgid "Please enter your name EN."
+msgstr "Please enter your name english."
+
+msgid "Name TH"
+msgstr "Name thai" 
+
+msgid "Enter your name TH."
+msgstr "Enter your name thai."
+
+msgid "Please enter your name TH."
+msgstr "Please enter your name thai."
+
+msgid "Enter your email."
+msgstr "Enter your email."
+
+msgid "Please enter your email."
+msgstr "Please enter your email."
+
+msgid "Update Profiles"
+msgstr "Update Profiles"
+
+#: -setting
+
+msgid "Select type participation"
+msgstr "Select type participation"
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Suggested"
+msgstr "Suggested"
+
+msgid "Fixed"
+msgstr "Fixed"
+
+msgid "Total funds"
+msgstr "Total funds"
+
+msgid "Show"
+msgstr "Show"
+
+msgid "Choose a deadline"
+msgstr "Choose a deadline"
+
+msgid "Deadline date"
+msgstr "Deadline date"
+
+msgid "Set a goal"
+msgstr "Set a goal"
+
+msgid "in THB"
+msgstr "in THB"
+
+msgid "Open Invite"
+msgstr "Open Invite"
+
+msgid "Hide participarts list"
+msgstr "Hide participarts list"
+
+msgid "Save"
+msgstr "Save"
+
+#: -Thank you
+
+msgid "Thank you for your contribution of"
+msgstr "Thank you for your contribution of"
+
+msgid "THB to"
+msgstr "THB to"
+
+msgid "Please enter message."
+msgstr "Please enter message."
+
+msgid "Send a message to organizer"
+msgstr "Send a message to organizer"
+
+msgid "type a message"
+msgstr "type a message"
+
+#: -transaction
+
+msgid "Finalize your transaction of"
+msgstr "Finalize your transaction of"
+
+msgid "Please enter full name."
+msgstr "Please enter full name."
+
+msgid "Full Name"
+msgstr "Full Name"
+
+msgid "Please enter card number."
+msgstr "Please enter card number."
+
+msgid "Please select expiry month."
+msgstr "Please select expiry month."
+
+msgid "Expiry month"
+msgstr "Expiry month"
+
+msgid "Please select expiry year."
+msgstr "Please select expiry year."
+
+msgid "Expiry year"
+msgstr "Expiry year"
+
+msgid "Please enter security code."
+msgstr "Please enter security code."
+
+msgid "Security code"
+msgstr "Security code"
+
+msgid "Krungsri Online"
+msgstr "Krungsri Online"
+
+msgid "Bualuang iBanking"
+msgstr "Bualuang iBanking"
+
+msgid "KTB Netbank"
+msgstr "KTB Netbank"
+
+msgid "SCB Easy Net"
+msgstr "SCB Easy Net"
+
+msgid "Confirm transaction"
+msgstr "Confirm transaction"
+
+#: -transferfund
+
+msgid "Your current balance is :"
+msgstr "Your current balance is :"
+
+msgid "Initiate a bank transfer"
+msgstr "Initiate a bank transfer"
+
+msgid "Balance transfer history"
+msgstr "Balance transfer history"
+
+msgid "Amount"
+msgstr "Amount"
+
+msgid "Fee"
+msgstr "Fee"
+
+msgid "Bank Account"
+msgstr "Bank Account"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Paid"
+msgstr "Paid"
+
+msgid "Sent"
+msgstr "Sent"
+
+msgid "In progress"
+msgstr "In progress"
+
+msgid "Fail"
+msgstr "Fail"
+
+msgid "Please add a bank account we should send the"
+msgstr "Please add a bank account we should send the"
+
+msgid "Receipient First & Last Name"
+msgstr "Receipient First & Last Name"
+
+msgid "Please enter receipient first & last name."
+msgstr "Please enter receipient first & last name."
+
+msgid "Bank account country"
+msgstr "Bank account country"
+
+msgid "Please enter bank account country."
+msgstr "Please enter bank account country."
+
+msgid "Thailand"
+msgstr "Thailand"
+
+msgid "Singapore"
+msgstr "Singapore"
+
+msgid "Bank account name"
+msgstr "Bank account name"
+
+msgid "Please enter bank account name."
+msgstr "Please enter bank account name."
+
+msgid "Bank account number"
+msgstr "Bank account number"
+
+msgid "Please enter bank account number."
+msgstr "Please enter bank account number."
+
+msgid "Bank name"
+msgstr "Bank name"
+
+msgid "Plase select bank name."
+msgstr "Plase select bank name."
+
+msgid "Type of bank account"
+msgstr "Type of bank account"
+
+msgid "'Plase select type of bank account."
+msgstr "'Plase select type of bank account."
+
+msgid "Individual"
+msgstr "Individual"
+
+msgid "Corperation"
+msgstr "Corperation"
+
+msgid "Create bank account"
+msgstr "Create bank account"
+
+msgid "Back"
+msgstr "Back"
+
+#: 2019-05-23-mypot 
+
+msgid "projects found"
+msgstr "projects found"
+
+msgid "xxxx"
+msgstr "xxxx"
+
+msgid "xxxx"
+msgstr "xxxx"
+
+msgid "xxxx"
+msgstr "xxxx"

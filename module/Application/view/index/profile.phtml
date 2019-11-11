@@ -1,0 +1,185 @@
+<main id="content" role="main">
+    <?php
+    include("breadcrumb.phtml");
+    ?>
+    <div class="container space-2 space-md-2">
+        <!-- Update Avatar Form -->
+        <form class="media align-items-center mb-7" id="upload_cover" name="upload_cover" action="" onsubmit="return false;" method="post" enctype="multipart/form-data">
+          <div class="u-lg-avatar mr-3">
+            <?php 
+            if(!empty($this->Users->image)){
+            ?>
+            <img class="img-fluid rounded-circle" src="<?=$this->Users->image;?>" alt="<?=!empty($this->Users->name)?$this->Users->name:'';?>">
+            <?php
+            }else{  
+            ?>
+            <img class="img-fluid rounded-circle" src="<?=$this->url('home');?>assets/img/avatar-100.jpg" alt="<?=!empty($this->Users->name)?$this->Users->name:'';?>">
+            <?php
+            } 
+            ?> 
+          </div>
+
+          <div class="media-body">
+            <label class="btn btn-sm btn-primary transition-3d-hover file-attachment-btn mb-1 mb-sm-0 mr-1" for="cover">
+              <?=$this->translate('Upload New Picture');?>
+              <input id="cover" name="cover" type="file" class="file-attachment-btn__label btn-upload_file" accept="image/*">
+            </label>
+          </div> 
+        </form>
+        <!-- End Update Avatar Form -->
+
+        <!-- Personal Info Form -->
+        <form class="js-validate" name="editprofile" id="editprofile" novalidate="novalidate" action="" onsubmit="return false;" method="post" enctype="multipart/form-data">
+          <div class="row">
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <label id="nameLabel" class="form-label">
+                  <?=$this->translate('Name EN'); ?>
+                  <span class="text-danger">*</span>
+                </label>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" id="name" value="<?=$detail['name_en'];?>" placeholder="<?=$this->translate('Enter your name EN.'); ?>" aria-label="<?=$this->translate('Enter your name EN.'); ?>" required="" aria-describedby="nameLabel" data-msg="<?=$this->translate('Please enter your name EN.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+                </div> 
+              </div> 
+              
+              <div class="js-form-message">
+                <label id="nameLabel" class="form-label">
+                  <?=$this->translate('Name TH'); ?>
+                  <span class="text-danger">*</span>
+                </label>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name_th" id="name_th" value="<?=$detail['name_th'];?>" placeholder="<?=$this->translate('Enter your name TH.'); ?>" aria-label="<?=$this->translate('Enter your name  TH.'); ?>" required="" aria-describedby="nameLabel" data-msg="<?=$this->translate('Please enter your name TH.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <label id="email" class="form-label">
+                  <?=$this->translate('Email'); ?>
+                  <span class="text-danger">*</span>
+                </label>
+
+                <div class="form-group">
+                  <input type="text" class="form-control disabled" name="email" id="email" value="<?=$detail['email'];?>" placeholder="<?=$this->translate('Enter your email.'); ?>" aria-label="<?=$this->translate('Enter your email.'); ?>" required="" aria-describedby="email" data-msg="<?=$this->translate('Please enter your email.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success" readonly>
+                </div>
+              </div>
+            </div> 
+            <!-- End Input --> 
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary transition-3d-hover btn-editprofile mr-1"><?=$this->translate('Update Profiles'); ?></button>
+        </form>
+        <!-- End Social Profiles Form -->
+    </div>
+</main> 
+<script type="text/javascript"> 
+$("form[name='editprofile']").validate({ 
+  rules: { 
+     name:"required",
+     name_th:"required",
+     email: {
+      required: true,
+      email: true
+    },
+  },    
+  messages: {         
+    name: $('#name').data('msg'),
+    name_th: $('#name_th').data('msg'),
+    email: $('#email').data('msg')
+  },    
+  submitHandler: function(form) {
+    btn_loader = $('.btn-editprofile');  
+    $('.btn-editprofile').buttonLoader('start'); 
+    $.ajax({  
+        url: base_url+'profile/?act=editprofile&rd='+makeid(), 
+        type: "POST",   
+        dataType: "json",  
+        data: $(form).serialize(),    
+        cache: false,              
+        processData: false,      
+        success: function(data) { 
+            
+            setTimeout(function(){    
+      				$(btn_loader).buttonLoader('stop');	
+      		 	},500);
+      		 	
+      			if(data.status==200){   
+      			    
+      				window.location.reload();
+      			 	
+      			}else{       
+      			    
+      				alert_error(error_alert);
+      				setTimeout(function(){   
+          				$(btn_loader).buttonLoader('stop');	
+          		 	},100);    
+      			} 
+			
+        },  
+        error: function(e) {
+            console.log(e);
+            setTimeout(function(){   
+				$(btn_loader).buttonLoader('stop');	
+		 	},100);    
+		    alert_error(error_alert);  
+        } 
+    });   
+    return false;  
+    
+  }, 
+  highlight: function(element, errorClass, validClass) {
+    $(element).removeClass('success-class').addClass('error-class');
+  },
+  unhighlight: function(element, errorClass, validClass) {
+    $(element).removeClass('error-class').addClass('success-class');
+  }
+}); 
+
+
+$("#cover").change(function(){
+  
+  btn_loader = $('.btn-upload_file');  
+  $('.btn-upload_file').buttonLoader('start'); 
+  var formData = new FormData(document.getElementsByName('upload_cover')[0]); 
+  formData.append('image', $("#cover")[0].files[0]);   
+  $.ajax({      
+      url: base_url+'profile/?act=upload_file&rd='+makeid(), 
+      type: "POST",   
+      dataType: "json",  
+      data: formData,          
+      contentType: false,
+		  cache: false,  
+		  processData: false,   
+      success: function(data) { 
+          
+          setTimeout(function(){    
+    				$(btn_loader).buttonLoader('stop');	
+    		 	},500);
+    		 	
+    			if(data.status==200){  
+    			    
+    				window.location.reload();
+    			 	
+    			}else{ 
+    				alert_error(error_alert);
+    				setTimeout(function(){   
+        				$(btn_loader).buttonLoader('stop');	
+        		 	},100);    
+    			} 
+		
+      },  
+      error: function(e) {
+          console.log(e);
+          setTimeout(function(){   
+			$(btn_loader).buttonLoader('stop');	
+	 	},100);    
+	    alert_error(error_alert);  
+      } 
+  }); 
+});
+
+</script>

@@ -1,0 +1,743 @@
+#: -header
+
+msgid "Prizzit"
+msgstr "Prizzit"
+ 
+msgid "Projects & Causes"
+msgstr "โครงการและปัญหา"
+ 
+msgid "Category"
+msgstr "ประเภท"
+ 
+msgid "How does it work ?"
+msgstr "มันทำงานยังไง?"
+ 
+msgid "Login"
+msgstr "เข้าสู่ระบบ"
+ 
+msgid "Logout"
+msgstr "ออกจากระบบ"
+ 
+msgid "Create a pot"
+msgstr "สร้างโครงการ"
+
+#: -footer
+
+msgid "About"
+msgstr "เกี่ยวกับเรา"
+ 
+msgid "Project"
+msgstr "โครงการ"
+ 
+msgid "Contact Us"
+msgstr "ติดต่อเรา"
+ 
+msgid "Resources"
+msgstr "ทรัพยากร"
+ 
+msgid "We are driven to deliver results for all your businesses."
+msgstr "เรามุ่งมั่นที่จะส่งมอบผลลัพธ์สำหรับทุกธุรกิจของคุณ"
+ 
+msgid "Terms"
+msgstr "ข้อตกลงและเงื่อนไข"
+ 
+msgid "Privacy"
+msgstr "ความเป็นส่วนตัว"
+ 
+msgid "Help"
+msgstr "ช่วยเหลือ"
+ 
+msgid "Download on the"
+msgstr "ดาวน์โหลดบน"
+ 
+msgid "App Store"
+msgstr "App Store"
+ 
+msgid "Get it on"
+msgstr "รับไปเลย"
+ 
+msgid "Google Play"
+msgstr "Google Play"
+ 
+msgid "© Prizzit. 2019 Htmlstream. All rights reserved."
+msgstr "© 2019 Prizzit. สงวนลิขสิทธิ์."
+
+#: - popup login  
+
+msgid "Login to manage your account."
+msgstr "เข้าสู่ระบบเพื่อจัดการบัญชีของคุณ"
+ 
+msgid "Signin With Facebook"
+msgstr "เข้าสู่ระบบด้วย Facebook"
+ 
+msgid "Signin With Line"
+msgstr "เข้าสู่ระบบด้วย Line"
+ 
+msgid "or with your email"
+msgstr "หรือด้วยอีเมลของคุณ"
+ 
+msgid "Email address"
+msgstr "ที่อยู่อีเมล"
+ 
+msgid "Please enter a valid email address."
+msgstr "กรุณาใส่อีเมล์ที่ถูกต้อง."
+ 
+msgid "Forgot Password?"
+msgstr "ลืมรหัสผ่าน?"
+ 
+msgid "Password"
+msgstr "รหัสผ่าน"
+ 
+msgid "Your password is invalid. Please try again."
+msgstr "รหัสผ่านของคุณไม่ถูกต้อง กรุณาลองอีกครั้ง."
+ 
+msgid "Don't have an account?"
+msgstr "ยังไม่มีบัญชีใช่ไหม"
+ 
+msgid "Signup"
+msgstr "สมัครสมาชิก"
+ 
+msgid "Get Started"
+msgstr "เริ่ม"
+
+msgid "Fill out the form to get started."
+msgstr "กรอกแบบฟอร์มเพื่อเริ่มต้น"
+
+msgid "Signup With Facebook"
+msgstr "สมัครสมาชิกด้วย Facebook"
+ 
+msgid "Signup With Line"
+msgstr "สมัครสมาชิกด้วย Line"
+ 
+msgid "Name"
+msgstr "ชื่อเต็ม"
+ 
+msgid "Please enter full name."
+msgstr "กรุณากรอกชื่อเต็ม"
+ 
+msgid "Your password is invalid. Please try again."
+msgstr "รหัสผ่านของคุณไม่ถูกต้อง กรุณาลองอีกครั้ง."
+ 
+msgid "Confirm password"
+msgstr "ยืนยันรหัสผ่าน"
+ 
+msgid "Password does not match the confirm password."
+msgstr "รหัสผ่านไม่ตรงกับรหัสผ่านยืนยัน"
+ 
+msgid "Already have an account?"
+msgstr "มีบัญชีอยู่แล้ว?"
+ 
+msgid "Please accept our Terms and Conditions."
+msgstr "โปรดยอมรับข้อกำหนดและเงื่อนไขของเรา"
+ 
+msgid "I agree to the"
+msgstr "ฉันเห็นด้วยกับ"
+ 
+msgid "Terms and Conditions"
+msgstr "ข้อกำหนดและเงื่อนไข"
+
+#: - home
+
+msgid "Create a money pot for"
+msgstr "สร้างโครงการสำหรับ"
+
+msgid "Group Gift - Project & Causes - Common Expenses"
+msgstr "ของขวัญกลุ่ม - โครงการ & ปัญหา - ค่าใช้จ่ายทั่วไป"
+ 
+msgid "Create a money for your money pot"
+msgstr "สร้างที่รับเงินสำหรับโครงการของคุณ"
+ 
+msgid "CREATE"
+msgstr "สร้าง"
+ 
+msgid "Please enter  a money for your money pot"
+msgstr "โปรดป้อนชื่อโครงการสำหรับรับเงินของคุณ"
+
+msgid "Create a money pot for anyting you can think of"
+msgstr "สร้างโครงการรับเงินสำหรับทุกสิ่งที่คุณนึกออก"
+
+#: -breadcrumb
+ 
+msgid "My money pots"
+msgstr "โครงการรับเงินของฉัน"
+ 
+msgid "Account Settings"
+msgstr "การตั้งค่าบัญชี"
+
+#: -category-list
+ 
+msgid "Discover social causes you can support"
+msgstr "ค้นพบปัญหาทางสังคมที่คุณสามารถสนับสนุนได้"
+
+msgid "category list text intro"
+msgstr "ค้นพบปัญหาทางสังคมที่คุณสามารถสนับสนุนได้"
+
+#: -Category
+
+msgid "All"
+msgstr "ทั้งหมด"
+
+msgid "You wish us"
+msgstr "คุณต้องการให้"
+ 
+msgid "to talk about"
+msgstr "เราพูดคุยเกี่ยวกับ"
+
+msgid "your project"
+msgstr "โครงการของคุณ"
+
+#: -Contact us
+
+msgid "How can Front assistants help you?"
+msgstr "ผู้ช่วยด้านหน้าสามารถช่วยคุณได้อย่างไร?"
+ 
+msgid "We'd love to talk about how we can help you."
+msgstr "เราชอบที่จะพูดคุยเกี่ยวกับวิธีที่เราสามารถช่วยคุณได้"
+
+msgid "Tell us"
+msgstr "บอกเรา"
+ 
+msgid "about yourself"
+msgstr "เกี่ยวกับตัวคุณ"
+ 
+msgid "Whether you have questions or you would just like to say hello, contact us."
+msgstr "ไม่ว่าคุณจะมีคำถามหรือต้องการทักทายคุณโปรดติดต่อเรา"
+
+msgid "Please enter name."
+msgstr "กรุณาใส่ชื่อเต็ม"
+ 
+msgid "Subject"
+msgstr "เรื่อง"
+ 
+msgid "Please enter subject."
+msgstr "กรุณากรอกหัวเรื่อง"
+ 
+msgid "Message"
+msgstr "ข้อความ"
+
+msgid "Please enter message."
+msgstr "กรุณากรอกข้อความ"
+ 
+msgid "Send Contact"
+msgstr "ส่งข้อความ"
+ 
+msgid "+66 3444-4479"
+msgstr "+66 3444-4479"
+
+#: -contactinfo
+ 
+msgid "Oops! Something went wrong."
+msgstr "อ๊ะ! บางอย่างผิดพลาด."
+
+msgid "Contact information"
+msgstr "ข้อมูลติดต่อ"
+
+msgid "First name"
+msgstr "ชื่อจริง"
+
+msgid "Last name"
+msgstr "นามสกุล"
+
+msgid "Please enter first name."
+msgstr "กรุณาใส่ชื่อ"
+
+msgid "Please enter Last name."
+msgstr "กรุณาใส่นามสกุล"
+
+msgid "Contribution information"
+msgstr "ข้อมูลการบริจาค"
+
+msgid "Enter contribution amount."
+msgstr "ใส่จำนวนเงินสมทบ"
+
+msgid "Credit / Debit Cards"
+msgstr "บัตรเครดิต / เดบิต"
+
+msgid "Internet Banking"
+msgstr "ธนาคารทางอินเทอร์เน็ต"
+
+msgid "Go Back"
+msgstr "ย้อนกลับ"
+
+msgid "Participate"
+msgstr "มีส่วนร่วม"
+
+#: -create
+
+msgid "Your money pot"
+msgstr "โครงการ"
+
+msgid "Name of the money pot"
+msgstr "ชื่อโครงการ"
+
+msgid "Plase enter name of your pot"
+msgstr "กรุณาใส่ชื่อโครงการของคุณ"
+
+msgid "Name of the organizer"
+msgstr "ชื่อของผู้จัด"
+
+msgid "Organizer by"
+msgstr "จัดงานโดย"
+
+msgid "Plese enter organizer"
+msgstr "กรุณาใส่ผู้จัดงาน"
+
+msgid "Date"
+msgstr "วันที่"
+
+msgid "Event date"
+msgstr "วันที่จัดกิจกรรม"
+
+msgid "Plese select event date."
+msgstr "โปรดเลือกวันที่ของกิจกรรม"
+
+msgid "Plese select category."
+msgstr "กรุณาเลือกหมวดหมู่"
+
+msgid "Sub Category"
+msgstr "หมวดหมู่ย่อย"
+
+msgid "Plese select sub category."
+msgstr "กรุณาเลือกหมวดหมู่ย่อย"
+
+msgid "Description"
+msgstr "คำอธิบาย"
+
+msgid "Plese enter description."
+msgstr "กรุณากรอกคำอธิบาย"
+
+msgid "Cover picture"
+msgstr "รูปภาพหน้าปก"
+
+msgid "Plese select cover picture"
+msgstr "กรุณาเลือกภาพหน้าปก"
+
+msgid "Crop"
+msgstr "ตัด"
+
+msgid "Close"
+msgstr "ปิด"
+
+msgid "Click in this area to select your cover files here."
+msgstr "คลิกที่บริเวณนี้เพื่อเลือกไฟล์หน้าปกของคุณที่นี่"
+
+msgid "Albums"
+msgstr "อัลบั้มรูป"
+
+msgid "Create my pot"
+msgstr "สร้างโครงการของฉัน"
+
+#: -edit
+
+msgid "Edit my pot"
+msgstr "แก้ไขโครงการของฉัน"
+
+#: -forgot pass
+
+msgid "New password"
+msgstr "รหัสผ่านใหม่" 
+
+msgid "Enter your password below and we'll get you back on login."
+msgstr "ป้อนรหัสผ่านของคุณด้านล่างและเราจะให้คุณกลับเข้าสู่ระบบ" 
+
+msgid "Your password is invalid. Please try again."
+msgstr "รหัสผ่านของคุณไม่ถูกต้อง กรุณาลองอีกครั้ง." 
+
+msgid "Back to sign in"
+msgstr "กลับไปลงชื่อเข้าใช้" 
+
+msgid "Change password"
+msgstr "เปลี่ยนรหัสผ่าน" 
+
+msgid "forgot password has expired."
+msgstr "ลืมรหัสผ่านหมดอายุ" 
+
+msgid "Request Reset Link"
+msgstr "ขอลิงค์รีเซ็ต" 
+
+#: -view
+msgid "collected"
+msgstr "เก็บรวบรวม"
+
+msgid "Contribute"
+msgstr "สนับสนุน" 
+
+msgid "View my pot"
+msgstr "ดูโครงการ" 
+
+msgid "Organized for"
+msgstr "จัดทำโดย"
+
+msgid "Invite your friends to participate"
+msgstr "เชิญเพื่อนของคุณให้เข้าร่วม" 
+
+msgid "Messages"
+msgstr "ข้อความ" 
+
+msgid "Comments"
+msgstr "ความคิดเห็น" 
+
+msgid "Loading..."
+msgstr "กำลังโหลด ..." 
+
+msgid "Payment are secured using omise.co"
+msgstr "การชำระเงินมีความปลอดภัยโดยใช้ omise.co" 
+
+msgid "participants"
+msgstr "ผู้เข้าร่วม" 
+
+msgid "days left"
+msgstr "วันที่เหลือ" 
+
+msgid "Participants"
+msgstr "ผู้เข้าร่วม" 
+
+msgid "THB"
+msgstr "บาท"
+
+msgid "Manage my pot"
+msgstr "จัดการโครงการของฉัน" 
+
+msgid "Edit"
+msgstr "แก้ไข" 
+
+msgid "Settings"
+msgstr "การตั้งค่า" 
+
+msgid "Invite"
+msgstr "เชื้อเชิญ" 
+
+msgid "Manage Invitations"
+msgstr "จัดการคำเชิญ" 
+
+msgid "Transfer Fund"
+msgstr "โอนเงิน" 
+
+msgid "Delete"
+msgstr "ลบ" 
+
+msgid "Close my pot"
+msgstr "ปิดโครงการของฉัน"
+
+#: -invite
+
+msgid "Send invite by email."
+msgstr "ส่งคำเชิญทางอีเมล" 
+
+msgid "Please enter email separated by coma"
+msgstr "โปรดป้อนอีเมลคั่นด้วยเครื่องหมายจุลภาค" 
+
+msgid "Remind in 3 days"
+msgstr "เตือนความจำใน 3 วัน" 
+
+msgid "Remind in 1 week"
+msgstr "เตือนใน 1 สัปดาห์" 
+
+msgid "Send invite"
+msgstr "ส่งคำเชิญ" 
+
+msgid "Invite your friends to participate"
+msgstr "เชิญเพื่อนของคุณให้เข้าร่วม" 
+
+#: -invite list
+
+msgid "Manage invitations"
+msgstr "จัดการคำเชิญ" 
+
+msgid "Checkbox"
+msgstr "ช่องทำเครื่องหมาย" 
+
+msgid "Email"
+msgstr "อีเมล์"
+
+msgid "Invited on"
+msgstr "เชิญเมื่อ" 
+
+msgid "Remind"
+msgstr "เตือน" 
+
+msgid "Participant"
+msgstr "ผู้เข้าร่วม" 
+
+#: -items list
+
+msgid "Total collected:"
+msgstr "รวมทั้งหมด:" 
+
+msgid "Participants:"
+msgstr "ผู้เข้าร่วม:" 
+
+msgid "Created on:"
+msgstr "สร้างเมื่อ:" 
+
+#: -project
+
+msgid "Donate to social causes & projects"
+msgstr "บริจาคเพื่อสังคมและโครงการ" 
+
+#: -my pot
+
+msgid "projects found"
+msgstr "พบโครงการ"
+
+#: -particpates
+
+msgid "Export participants as CSV"
+msgstr "ส่งออกผู้เข้าร่วมเป็น CSV" 
+
+msgid "Firt & Last Name"
+msgstr "ชื่อนามสกุล"
+
+msgid "Contribution date"
+msgstr "วันที่บริจาค"
+
+msgid "Contribution amount"
+msgstr "จำนวนเงินสมทบ" 
+
+msgid "No Data"
+msgstr "ยังไม่มีข้อมูล"
+
+#: -profile
+
+msgid "Upload New Picture"
+msgstr "อัปโหลดรูปภาพใหม่" 
+
+msgid "Name EN"
+msgstr "ชื่อภาษาอังกฤษ"
+
+msgid "Enter your name EN."
+msgstr "ใส่ชื่อของคุณเป็นภาษาอังกฤษ" 
+
+msgid "Please enter your name EN."
+msgstr "กรุณาใส่ชื่อของคุณเป็นภาษาอังกฤษ"
+
+msgid "Name TH"
+msgstr "ชื่อภาษาไทย" 
+
+msgid "Enter your name TH."
+msgstr "ใส่ชื่อภาษาไทย"
+
+msgid "Please enter your name TH."
+msgstr "กรุณาใส่ชื่อของคุณไทย"
+
+msgid "Enter your email."
+msgstr "กรอกอีเมล์ของคุณ."
+
+msgid "Please enter your email."
+msgstr "กรุณากรอกอีเมลของคุณ"
+
+msgid "Update Profiles"
+msgstr "อัพเดตโปรไฟล์"
+
+#: -setting
+
+msgid "Select type participation"
+msgstr "เลือกประเภทการมีส่วนร่วม"
+
+msgid "Open"
+msgstr "เปิด"
+
+msgid "Suggested"
+msgstr "แนะนำ"
+
+msgid "Fixed"
+msgstr "คงที่"
+
+msgid "Total funds"
+msgstr "กองทุนรวม"
+
+msgid "Show"
+msgstr "แสดง"
+
+msgid "Choose a deadline"
+msgstr "เลือกกำหนดเวลา"
+
+msgid "Deadline date"
+msgstr "วันที่กำหนด"
+
+msgid "Set a goal"
+msgstr "กำหนดเป้าหมาย"
+
+msgid "in THB"
+msgstr "บาท"
+
+msgid "Open Invite"
+msgstr "เปิดการเชิญ"
+
+msgid "Hide participarts list"
+msgstr "ซ่อนรายชื่อผู้เข้าร่วม"
+
+msgid "Save"
+msgstr "บันทึก"
+
+#: -Thank you
+
+msgid "Thank you for your contribution of"
+msgstr "ขอบคุณสำหรับการสนับสนุนของ"
+
+msgid "THB to"
+msgstr "บาท ถึง"
+
+msgid "Please enter message."
+msgstr "กรุณากรอกข้อความ"
+
+msgid "Send a message to organizer"
+msgstr "ส่งข้อความไปยังผู้จัด"
+
+msgid "type a message"
+msgstr "พิมพ์ข้อความ"
+
+#: -transaction
+
+msgid "Finalize your transaction of"
+msgstr "จบการทำธุรกรรมของคุณจาก"
+
+msgid "Please enter full name."
+msgstr "กรุณากรอกชื่อเต็ม"
+
+msgid "Full Name"
+msgstr "ชื่อเต็ม"
+
+msgid "Please enter card number."
+msgstr "กรุณาใส่หมายเลขบัตร"
+
+msgid "Please select expiry month."
+msgstr "โปรดเลือกเดือนที่หมดอายุ"
+
+msgid "Expiry month"
+msgstr "เดือนที่หมดอายุ"
+
+msgid "Please select expiry year."
+msgstr "โปรดเลือกปีที่หมดอายุ"
+
+msgid "Expiry year"
+msgstr "ปีที่หมดอายุ"
+
+msgid "Please enter security code."
+msgstr "กรุณาใส่รหัสความปลอดภัย"
+
+msgid "Security code"
+msgstr "รหัสรักษาความปลอดภัย"
+
+msgid "Krungsri Online"
+msgstr "กรุงศรีออนไลน์"
+
+msgid "Bualuang iBanking"
+msgstr "บัวหลวงไอแบงก์กิ้ง"
+
+msgid "KTB Netbank"
+msgstr "KTB Netbank"
+
+msgid "SCB Easy Net"
+msgstr "SCB Easy Net"
+
+msgid "Confirm transaction"
+msgstr "ยืนยันการทำธุรกรรม"
+
+#: -transferfund
+
+msgid "Your current balance is :"
+msgstr "ยอดเงินปัจจุบันของคุณคือ :"
+
+msgid "Initiate a bank transfer"
+msgstr "เริ่มการโอนเงินผ่านธนาคาร"
+
+msgid "Balance transfer history"
+msgstr "ประวัติการโอนยอดคงเหลือ"
+
+msgid "Amount"
+msgstr "จำนวน"
+
+msgid "Fee"
+msgstr "ค่าธรรมเนียม"
+
+msgid "Bank Account"
+msgstr "บัญชีธนาคาร"
+
+msgid "Status"
+msgstr "สถานะ"
+
+msgid "Paid"
+msgstr "จ่ายแล้ว"
+
+msgid "Sent"
+msgstr "ส่ง"
+
+msgid "In progress"
+msgstr "กำลังดำเนินการ"
+
+msgid "Fail"
+msgstr "ล้มเหลว"
+
+msgid "Please add a bank account we should send the"
+msgstr "โปรดเพิ่มบัญชีธนาคารที่เราควรส่ง"
+
+msgid "Receipient First & Last Name"
+msgstr "ชื่อและนามสกุลของผู้รับ"
+
+msgid "Please enter receipient first & last name."
+msgstr "กรุณากรอกชื่อและนามสกุลของผู้รับ"
+
+msgid "Bank account country"
+msgstr "ประเทศบัญชีธนาคาร"
+
+msgid "Please enter bank account country."
+msgstr "โปรดป้อนประเทศของบัญชีธนาคาร"
+
+msgid "Thailand"
+msgstr "ประเทศไทย"
+
+msgid "Singapore"
+msgstr "สิงคโปร์"
+
+msgid "Bank account name"
+msgstr "ชื่อบัญชีธนาคาร"
+
+msgid "Please enter bank account name."
+msgstr "กรุณาใส่ชื่อบัญชีธนาคาร"
+
+msgid "Bank account number"
+msgstr "หมายเลขบัญชีธนาคาร"
+
+msgid "Please enter bank account number."
+msgstr "กรุณาใส่หมายเลขบัญชีธนาคาร"
+
+msgid "Bank name"
+msgstr "ชื่อธนาคาร"
+
+msgid "Plase select bank name."
+msgstr "กรุณาเลือกชื่อธนาคาร"
+
+msgid "Type of bank account"
+msgstr "ประเภทบัญชีธนาคาร"
+
+msgid "Plase select type of bank account."
+msgstr "กรุณาเลือกประเภทบัญชีธนาคาร"
+
+msgid "Individual"
+msgstr "รายบุคคล"
+
+msgid "Corperation"
+msgstr "บริษัท"
+
+msgid "Create bank account"
+msgstr "สร้างบัญชีธนาคาร"
+
+msgid "Back"
+msgstr "กลับ"
+
+#: 2019-05-23-mypot
+
+msgid "projects found"
+msgstr "โครงการ"
+
+msgid "xxxx"
+msgstr "xxxx"
+
+msgid "xxxx"
+msgstr "xxxx"
+
+msgid "xxxx"
+msgstr "xxxx"
+
+

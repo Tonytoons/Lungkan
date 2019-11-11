@@ -1,0 +1,147 @@
+  <!-- ========== MAIN ========== -->
+  <main id="content" role="main">
+    
+    <div id="SVGwave1BottomSMShape" class="svg-preloader position-relative gradient-half-primary-v1 overflow-hidden">
+      <div class="container space-top-2 space-bottom-3 space-top-md-1 space-top-lg-1">
+        <div class="w-md-80 w-lg-60 text-center mx-auto">
+          <h1 class="h2 display-6 font-size-md-down-5 text-white"><?=$this->translate('Category');?></span></h1>
+          <p class="lead text-white"><?=$this->translate('Discover social causes you can support');?></p>
+        </div>
+      </div>
+
+      <!-- SVG Background -->
+      <figure class="position-absolute right-0 bottom-0 left-0">
+        <img class="js-svg-injector" src="<?=$this->url('home');?>assets/svg/components/wave-1-bottom-sm.svg" alt="Image Description"
+             data-parent="#SVGwave1BottomSMShape">
+      </figure>
+      <!-- End SVG Background Section -->
+    </div>
+
+
+    <!-- Portfolio Section -->
+    <div class="container space-2 space-bottom-md-3">
+      
+      <div class="u-cubeportfolio space-bottom-2">
+        <!-- Filter --> 
+        <ul id="filterControls" class="list-inline cbp-l-filters-alignRight text-center">
+          <li class="list-inline-item cbp-filter-item cbp-filter-item-active u-cubeportfolio__item" data-filter="*"><?=$this->translate('All');?></li>
+          <?php  
+          if(!empty($CateList['cate'])){ 
+            foreach($CateList['cate'] as $key=>$val){ 
+          ?>
+          <li class="list-inline-item cbp-filter-item u-cubeportfolio__item" data-filter=".cate<?=$val['id'];?>"><?=$val['name'];?></li>
+          <?php
+            } 
+          } 
+          ?>
+        </ul>
+        <!-- End Filter -->
+
+        <!-- Content -->
+        <div class="cbp"
+             data-layout="grid"
+             data-controls="#filterControls"
+             data-animation="quicksand"
+             data-x-gap="32"
+             data-y-gap="32"
+             data-media-queries='[
+              {"width": 1500, "cols": 4},
+              {"width": 1100, "cols": 4},
+              {"width": 800, "cols": 3},
+              {"width": 480, "cols": 2},
+              {"width": 300, "cols": 1}
+            ]'>
+          <?php 
+          if(!empty($CateList['subcate'])){ 
+            foreach($CateList['subcate'] as $key=>$val){ 
+          ?>
+          <!-- Item --> 
+          <div class="cbp-item rounded cate<?=$val['cate_id'];?>">
+            <a class="cbp-caption" href="<?=$this->url('home').$this->lang;?>/category-list/<?=$val['slugify'];?>"> 
+              <div class="cbp-caption-defaultWrap">
+                <img src="<?=$val['image'];?>" alt="<?=$val['name'];?>">
+              </div>
+              <div class="cbp-caption-activeWrap bg-primary">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">  
+                    <h4 class="h6 text-white mb-0"><?=$val['name'];?></h4>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- End Item -->
+          <?php 
+            }
+          }
+          ?>
+          
+        </div>
+        <!-- End Content -->
+      </div>
+	  
+	  
+    </div>
+    <!-- End Portfolio Section -->
+    
+    
+
+    <!-- Contact Us Section -->
+    <div id="SVGwave1BottomSMShapeID2" class="svg-preloader">
+      <div class="gradient-half-primary-v1">
+        <div class="container space-top-2 space-bottom-3 space-top-md-3 space-bottom-md-4">
+          <div class="row justify-content-md-between align-items-md-start">
+            <div class="col-md-6 mb-7 mb-md-0">
+              <h2 class="text-white mb-5"><?=$this->translate('You wish us');?><br><?=$this->translate('to talk about');?> <span class="font-weight-semi-bold"><?=$this->translate('your project');?></span>?</h2>
+              <a class="h4 text-light" href="mailto:contact@prizzit.com">contact@prizzit.com</a>
+            </div>
+  
+            <div class="col-md-6 mt-md-auto text-md-right">
+              <!-- Social Networks -->
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a class="btn btn-sm btn-icon btn-soft-light btn-bg-transparent" href="#">
+                    <span class="fab fa-facebook-f btn-icon__inner"></span>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn btn-sm btn-icon btn-soft-light btn-bg-transparent" href="#">
+                    <span class="fab fa-google btn-icon__inner"></span>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn btn-sm btn-icon btn-soft-light btn-bg-transparent" href="#">
+                    <span class="fab fa-twitter btn-icon__inner"></span>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn btn-sm btn-icon btn-soft-light btn-bg-transparent" href="#">
+                    <span class="fab fa-github btn-icon__inner"></span>
+                  </a>
+                </li>
+              </ul>
+              <!-- End Social Networks -->
+
+              <span class="h4 text-white-70"><?=$this->translate('+66 3444-4479');?></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SVG Background -->
+      <figure class="position-absolute right-0 bottom-0 left-0 z-index-2">
+        <img class="js-svg-injector" src="<?=$this->url('home');?>assets/svg/components/wave-1-bottom-sm.svg" alt="Image Description"
+             data-parent="#SVGwave1BottomSMShapeID2">
+      </figure>
+      <!-- End SVG Background -->
+    </div>
+    <!-- End Contact Us Section -->
+  </main>
+  <!-- ========== END MAIN ========== -->
+   <!-- JS Plugins Init. -->
+  <script>
+    $(window).on('load', function () {
+      // initialization of cubeportfolio
+      $.HSCore.components.HSCubeportfolio.init('.cbp');
+    });
+  </script>

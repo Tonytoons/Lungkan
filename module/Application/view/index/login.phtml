@@ -1,0 +1,71 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main">
+    <!-- Login Form -->
+    <div class="container space-2 space-md-2">
+        <form class="js-validate w-md-75 w-lg-50 mx-md-auto" name="loginform" id="loginform" action="" onsubmit="return false;" method="post"  novalidate="novalidate">
+            <!-- Title -->
+            <div class="mb-7"> 
+                <h2 class="h3 font-weight-normal mb-0"><?=$this->translate('Login'); ?></h2>
+                <p><?=$this->translate('Login to manage your account.'); ?></p>
+            </div>
+            <!-- End Title -->
+            <div class="js-form-message form-group"> 
+                <button type="button" onclick="connectFackbook();" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f fa-2x"></i><?=$this->translate('Signin With Facebook'); ?></button>
+            </div>
+            <div class="js-form-message form-group"> 
+                <a href="<?=$this->url('home').$this->lang;?>/loginLine/?act=login&return_url=<?=$FullLink;?>" class="btn btn-line btn-block"><i class="fab fa-line fa-2x"></i><?=$this->translate('Signin With Line'); ?></a>
+            </div> 
+            <p class="text-center mb-3 mt-3 text-or"><?=$this->translate('or with your email'); ?></p> 
+            <!-- Form Group -->
+            <div class="js-form-message form-group">
+                <label class="form-label" for="signinSrEmail"><?=$this->translate('Email address'); ?></label>
+                <input type="email" class="form-control" name="email" id="signinSrEmail" placeholder="<?=$this->translate('Email address'); ?>" aria-label="<?=$this->translate('Email address'); ?>" data-msg="<?=$this->translate('Please enter a valid email address.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- End Form Group -->
+ 
+            <!-- Form Group -->
+            <div class="js-form-message form-group">
+                <label class="form-label" for="signinSrPassword">
+                    <span class="d-flex justify-content-between align-items-center">
+                      <?=$this->translate('Password'); ?>
+                      <?php
+                      if($this->action=='create'){
+                        $link = 'create/?act=forgotpass';
+                        if(!empty($potname)) $link.='&potname='.$potname; 
+                      }else{
+                        $link = 'forgotpass/';  
+                      }
+                      ?>
+                      <a class="link-muted text-capitalize font-weight-normal" href="<?=$this->url('home').$this->lang;?>/<?=$link;?>"><?=$this->translate('Forgot Password?'); ?></a>
+                    </span>
+                </label> 
+                <input type="password" class="form-control" name="password" id="signinSrPassword" placeholder="********" aria-label="********" data-msg="<?=$this->translate('Your password is invalid. Please try again.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- End Form Group -->
+
+            <!-- Button -->
+            <div class="row align-items-center mb-5">
+                <div class="col-6"> 
+                    <span class="small text-muted"><?=$this->translate('Don\'t have an account?'); ?></span>
+                    <?php
+                    if($this->action=='create'){
+                        $link = 'create/?act=register'; 
+                        if(!empty($potname)) $link.='&potname='.$potname; 
+                    }else{
+                        $link = 'register/';   
+                    }
+                    ?>
+                    <a class="small" href="<?=$this->url('home').$this->lang;?>/<?=$link;?>"><?=$this->translate('Signup'); ?></a>
+                </div>
+ 
+                <div class="col-6 text-right">
+                    <button type="submit" class="btn btn-primary  btn-login transition-3d-hover"><?=$this->translate('Get Started'); ?></button>
+                </div>
+            </div>
+            <!-- End Button -->
+        </form>
+    </div>
+    <!-- End Login Form -->
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+  

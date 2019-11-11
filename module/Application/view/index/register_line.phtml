@@ -1,0 +1,35 @@
+
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main">
+    <!-- Login Form --> 
+    <div class="container space-2 space-md-2"> 
+        <form class="js-validate w-md-75 w-lg-50 mx-md-auto" name="registerlineform" id="registerlineform" action="" onsubmit="return false;" method="post" novalidate="novalidate">
+            <!-- Title -->
+            <div class="mb-7"> 
+                <h1 class="h3 font-weight-normal mb-0"><?=$this->translate('Signup'); ?></h1>
+                <p><?=$this->translate('Fill out the form to get started.'); ?></p>
+            </div>
+            <!-- Form Group --> 
+            <div class="js-form-message form-group"> 
+                <label class="form-label" for="signinSrName"><?=$this->translate('Name'); ?></label>
+                <input type="text" class="form-control" name="name" id="line_signinSrName" value="<?=$userDetail['displayName']?>" placeholder="<?=$this->translate('Name'); ?>" aria-label="<?=$this->translate('Name'); ?>" data-msg="<?=$this->translate('Please enter full name.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- Form Group -->
+            <div class="js-form-message form-group">
+                <label class="form-label" for="signinSrEmail"><?=$this->translate('Email address'); ?></label>
+                <input type="email" class="form-control" name="email" id="line_signinSrEmail" placeholder="<?=$this->translate('Email address'); ?>" aria-label="<?=$this->translate('Email address'); ?>" data-msg="<?=$this->translate('Please enter a valid email address.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- End Form Group -->
+             
+            <!-- Button -->
+            <div class="row align-items-center mb-5">
+                <div class="col-12 col-sm-12 text-right">
+                    <button type="submit" class="btn btn-primary btn-register transition-3d-hover"><?=$this->translate('Get Started'); ?></button>
+                </div>
+            </div>
+            <!-- End Button -->
+        </form>
+    </div>
+    <!-- End Login Form -->
+</main> 
+<!-- ========== END MAIN CONTENT ========== --> 

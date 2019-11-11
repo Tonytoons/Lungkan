@@ -1,0 +1,86 @@
+<?php 
+$title=$this->SEO['title']; 
+$this->headMeta()->appendName('keywords', !empty($this->SEO['keywords'])?$this->SEO['keywords']:'');
+$this->headMeta()->appendName('description', !empty($this->SEO['description'])?$this->SEO['description']:'');
+$this->headMeta()->setProperty('og:title', !empty($this->SEO['title'])?$this->SEO['title']:''); 
+$this->headMeta()->setProperty('og:description', !empty($this->SEO['description'])?$this->SEO['description']:'');
+$this->headMeta()->setProperty('og:url', !empty($this->SEO['url'])?$this->SEO['url']:$this->full_url);   
+$this->headMeta()->setProperty('og:image', !empty($this->SEO['image'])?$this->SEO['image']:$this->url('home').'images/image_site.png');  
+$this->headMeta()->setProperty('og:image:type', 'image/jpeg');  
+$this->headMeta()->setProperty('og:image:width', '400 ');
+$this->headMeta()->setProperty('og:image:height', '300');    
+$this->headMeta()->setProperty('og:site_name', $this->translate('Site name'));   
+$this->headMeta()->setProperty('og:locale', !empty($this->SEO['locale'])?$this->SEO['locale']:'th_TH');      
+$this->headMeta()->setProperty('og:type', 'website');    
+$this->headMeta()->setProperty('fb:app_id', !empty($this->SEO['fb_app_id'])?$this->SEO['fb_app_id']:''); 
+$this->headMeta()->appendName('twitter:title', !empty($this->SEO['title'])?$this->SEO['title']:'');  
+$this->headMeta()->appendName('twitter:description', !empty($this->SEO['description'])?$this->SEO['description']:''); 
+$this->headMeta()->appendName('twitter:image:src', !empty($this->SEO['image'])?$this->SEO['image']:$this->url('home').'images/image_site.png');  
+$this->headMeta()->appendName('twitter:card', 'summary');  
+$this->headMeta()->appendName('twitter:site', $this->translate('Site name'));       
+$this->headMeta()->appendName('twitter:creator', !empty($this->SEO['creator'])?$this->SEO['creator']:'');   
+$this->headMeta()->appendName('twitter:domain', !empty($this->SEO['domain'])?$this->SEO['domain']:'');
+ 
+if(!empty($title)) $this->headTitle($title);  
+
+if(!empty($this->stylesheets)){
+	foreach ($this->stylesheets as $media => $files)
+	{
+		foreach ($files as $file) 
+		{
+		    $this->headLink()->appendStylesheet($this->url('home').$file, $media);
+		} 
+	}
+}
+
+if(!empty($this->scripts['head'])){
+    if(!empty($this->scripts['head'])){ 
+    	foreach ($this->scripts['head'] as $file)
+		{
+		    $this->headScript()->appendFile($this->url('home').$file,'text/javascript');
+		}
+    }
+}
+
+$content = strtolower($this->content); 
+$action = strtolower($this->action); 
+
+if(!empty($content)){
+	
+	if($content=='login'){ 
+		include_once($content.'.phtml');  
+	}else{
+		include('head.phtml');  
+		include_once('menu.phtml'); 
+		
+		if($content=='dashboard'){
+			
+			include_once('dashboard.phtml');  
+			
+		}else if($action!='index'){ 
+			
+		    include_once($action.'/'.$content.'.phtml'); 
+		     
+		}else{  
+			
+		   include_once($action.'/list.phtml');  
+		   
+		} 
+		include_once('foot.phtml');
+	}
+}else if(!empty($action)){ 
+	include('head.phtml');  
+	include_once('menu.phtml');  
+	include_once($action.'/list.phtml'); 
+	include_once('foot.phtml');
+}else{
+	
+}
+if(!empty($this->scripts['foot'])){ 
+	foreach ($this->scripts['foot'] as $file)
+	{
+	     echo "<script src='".$this->url('home').$file."'></script>";
+	}
+} 
+?>
+  

@@ -1,0 +1,107 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main">
+    <!-- Login Form -->
+    <div class="container  space-2 space-md-2">
+        <?php
+        if(!empty($token)){ 
+        ?>
+            <?php
+            if(!empty($time_expire)){ 
+            ?>
+            <form class="js-validate w-md-75 w-lg-50 mx-md-auto" name="newpassform" id="newpassform" action="" onsubmit="return false;" method="post"  novalidate="novalidate">
+                <!-- Title -->
+                <div class="mb-7">
+                    <h1 class="h3 font-weight-normal mb-0"><?=$this->translate('New password');?>?</span></h1>
+                    <p><?=$this->translate("Enter your password below and we'll get you back on login.");?></p>
+                </div>
+                <!-- End Title --> 
+     
+                <!-- Form Group -->
+                <div class="js-form-message form-group"> 
+                    <label class="form-label" for="signinSrEmail"><?=$this->translate('New password');?></label>
+                    <input type="hidden" name="token" id="token" value="<?=$token;?>"/>  
+                    <input type="hidden" name="email" id="email" value="<?=$token_email;?>"/>
+                    <input type="password" class="form-control" name="password" id="signinSrPassword" placeholder="********" aria-label="********" data-msg="<?=$this->translate('Your password is invalid. Please try again.');?>" data-error-class="u-has-error" data-success-class="u-has-success">
+                </div>
+                <!-- End Form Group --> 
+     
+                <!-- Button -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-4 col-sm-6">  
+                        <?php
+                        if($this->action=='create'){ 
+                            $link = 'create/?act=login';
+                            if(!empty($potname)) $link.='&potname='.$potname;
+                        }else{
+                            $link = 'login/';  
+                        } 
+                        ?>
+                        <a class="small link-muted" href="<?=$this->url('home').$this->lang;?>/<?=$link;?>"><?=$this->translate('Back to sign in');?></a>
+                    </div>
+    
+                    <div class="col-8 col-sm-6 text-right"> 
+                        <button type="submit" class="btn btn-primary btn-newpass transition-3d-hover"><?=$this->translate('Change password');?></button>
+                    </div>
+                </div>
+                <!-- End Button -->
+            </form>
+            
+            <?php
+            }else{
+            ?>
+            <div class="col-sm-12 col-md-9 col-lg-9 ml-md-auto mr-md-auto text-center">
+                <div class="alert alert-danger text-center"> 
+                    <h1><?=$this->translate('forgot password has expired.');?></h1>   
+                </div>
+                <a href="<?=$this->url('home').$this->lang;?>/"  class="btn btn-primary btn-newpass transition-3d-hover"><i class="fa fa-home" aria-hidden="true"></i> <?=$this->translate('Go Back');?></a>
+            </div>
+            <?php
+            }
+            ?>
+            
+        <?php
+        }else{
+        ?>
+        <form class="js-validate w-md-75 w-lg-50 mx-md-auto" name="forgotpassform" id="forgotpassform" action="" onsubmit="return false;" method="post"  novalidate="novalidate">
+            <!-- Title -->
+            <div class="mb-7">
+                <h1 class="h3 font-weight-normal mb-0"><?=$this->translate('New password');?>?</span></h1>
+                <p><?=$this->translate('Enter your password below and we\'ll get you back on login.');?></p>
+            </div>
+            <!-- End Title -->
+
+            <!-- Form Group -->
+            <div class="js-form-message form-group">
+                <label class="form-label" for="signinSrEmail"><?=$this->translate('Email address'); ?></label>
+                <input type="email" class="form-control" name="email" id="signinSrEmail" placeholder="<?=$this->translate('Email address'); ?>" aria-label="<?=$this->translate('Email address'); ?>" data-msg="<?=$this->translate('Please enter a valid email address.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- End Form Group -->
+ 
+            <!-- Button -->
+            <div class="row align-items-center mb-5">
+                <div class="col-4 col-sm-6">  
+                    <?php
+                    if($this->action=='create'){ 
+                        $link = 'create/?act=login';
+                        if(!empty($potname)) $link.='&potname='.$potname;
+                    }else{
+                        $link = 'login/';  
+                    } 
+                    ?>
+                    <a class="small link-muted" href="<?=$this->url('home').$this->lang;?>/<?=$link;?>"><?=$this->translate('Back to sign in'); ?></a>
+                </div>
+
+                <div class="col-8 col-sm-6 text-right"> 
+                    <button type="submit" class="btn btn-primary btn-forgotpass transition-3d-hover"><?=$this->translate('Request Reset Link'); ?></button>
+                </div>
+            </div>
+            <!-- End Button -->
+        </form>
+        <?php
+        }
+        ?>
+        
+    </div>
+    <!-- End Login Form -->
+</main>
+<!-- ========== END MAIN CONTENT ========== -->

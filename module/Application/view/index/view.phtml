@@ -1,0 +1,246 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main class="content" id="content" role="main">
+    <div class="container space-1 space-md-2">
+        <div class="row">
+            <div class="col-sm-9 col-md-9 col-lg-9 ml-md-auto mr-md-auto">
+                <div class="row">
+
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                        <div class="card mb-3">
+                            <div class="owl-carousel owl-theme">
+                                
+                                <div class="item">
+                                  <img src="<?=$detail['image'];?>" class="img-fluid w-100" alt="<?=$detail['name'];?>">
+                                </div>
+                                <?php
+                                if(!empty($albumList)){ 
+                                    foreach($albumList as $key=>$item){
+                                ?>
+                                    <div class="item">
+                                      <img src="<?=$item['image'];?>" class="img-fluid w-100" alt="<?=$detail['name'];?>">
+                                    </div>
+                                <?php
+                                    } 
+                                }
+                                ?> 
+                            </div>
+                            <div class="card-bottom"> 
+                                <h3><?=$detail['name'];?></h3>
+                                <footer class="blockquote-footer pb-2"><?=$this->translate('Organized for'); ?> <cite title="<?=$detail['organizer'];?>"><?=$detail['organizer'];?></cite></footer>
+                            </div> 
+                        </div>
+                            
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 ml-md-auto mr-md-auto mb-3">
+                                <form class="mb-3"> 
+                                    <small class="form-text text-muted mb-3 mt-3"><?=$this->translate('Invite your friends to participate'); ?></small>
+                                    <div class="js-focus-state mb-2">
+                                        <div class="input-group">
+                                            <input id="referralLink" type="text" class="form-control" value="<?=$webURL;?>/<?=$lang;?>/view/<?=!empty($detail['slugify'])?$detail['slugify']:$id;?>">
+                                            <div class="input-group-append">
+                                                <a class="js-clipboard input-group-text" href="javascript:;" id="btn-clipboard" data-clipboard-action="copy" data-clipboard-target="#referralLink" data-default-class="fas fa-clone" data-success-class="fas fa-check">
+                                                    <span id="linkIcon" class="fa-clone fas"></span>
+                                                </a> 
+                                            </div>
+                                            
+                                        </div>
+                                       
+                                    </div>
+                                </form>
+                                <div class="social-block"> 
+                                    <div class="social-share"></div>
+                                    <?php 
+                                    if(0){ 
+                                    ?>
+                                    <div id="shareBtn" class="btn btn-facebook col-xs-2 mr-1">Facebook</div>
+                                
+                                    <div id="shareBtn" class="btn btn-twitter col-xs-2 mr-1">Twitter</div>
+                                    <div id="shareBtn" class="btn btn-instagram col-xs-2">Instagram</div>
+                                        <!--<div class="line-it-button" data-lang="en" data-type="share-d" data-ver="2" data-url="<?=$webURL;?>/<?=$lang;?>/view/<?=!empty($detail['slugify'])?$detail['slugify']:$id;?>" style="display: none;"></div>-->
+                                    <a href="https://social-plugins.line.me/lineit/share?url=https://line.me/en" class="btn btn-success" target="_blank"> <i class="fab fa-line"></i> </a>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- End card -->
+                        
+                         <div class="card mb-3">
+                            <div class="card-body description">
+                                <?php
+                                $content = $detail['description'];
+                                $content = str_replace('<iframe', '<div class="iframe-container"><iframe', $content);
+                                $content = str_replace('</iframe>', '</iframe></div>', $content); 
+                                //$desc = $detail['description'];
+                                //$desc = preg_replace('/<iframe\s+.*?\s+src=(".*?").*?<\/iframe>/', '/<div class="iframe-container"> <iframe width="1425" height="559" src="$1"></iframe></div>/', $desc);
+                                //if($id==5){
+                                ?> 
+                                
+                                <?=$content;?>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="mt-3 mb-3"> 
+                            
+                            <div class="btn-group btn-group-toggle mb-3">
+                              <a class="js-animation-link btn btn-sm btn-outline-primary btn-sm active" href="javascript:;" data-target="#tab1" data-link-group="tabs" data-animation-in="slideInUp">
+                                <?=$this->translate('Messages'); ?>
+                              </a>
+                              <a class="js-animation-link btn btn-sm btn-outline-primary btn-sm" href="javascript:;" data-target="#tab2" data-link-group="tabs" data-animation-in="slideInUp">
+                                <?=$this->translate('Comments'); ?>
+                              </a>
+                              <a class="js-animation-link btn btn-sm btn-outline-primary btn-sm" href="javascript:;" data-target="#tab3" data-link-group="tabs" data-animation-in="slideInUp">
+                                <?=$this->translate('Participants'); ?>
+                              </a> 
+                            </div>     
+                           
+                                    
+                            <div id="tab1" data-target-group="tabs" class="animated slideInUp contenttabs active">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="message-list"> 
+                                            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                                <span class="spinner mt-5"><i class="fa fa-spinner fa-spin font-size-2"></i></span>
+                                                <small class="form-text text-muted mb-0 mt-0"><?=$this->translate('Loading...'); ?></small> 
+                                            </div>   
+                                        </div> 
+                                        <ul id="pagination1" class="pagination mt-3"></ul>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div id="tab2" data-target-group="tabs" class="animated slideInUp contenttabs">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                            <div class="fb-comments" data-href="<?=$FullLink;?>" data-width="100%" data-numposts="10"></div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab3" data-target-group="tabs" class="animated slideInUp contenttabs">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row" id="participants-list">
+                                            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                                <span class="spinner mt-5"><i class="fa fa-spinner fa-spin font-size-2"></i></span>
+                                                <small class="form-text text-muted mb-0 mt-0"><?=$this->translate('Loading...'); ?></small>
+                                            </div>
+                                        </div>
+                                        <ul id="pagination2" class="pagination mt-3"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4 col-lg-4"> 
+                        <?php 
+                        if($detail['status']==1 && !empty($deadline)){    
+                        ?>
+                        <!-- card -->
+                        <div class="card  mb-3"> 
+                            <div class="card-body text-center mt-3">
+                                <a href="<?=$this->url('home').$this->lang;?>/contactinfo/<?=!empty($detail['slugify'])?$detail['slugify']:$id;?>" class="btn btn-primary btn-large transition-3d-hover mb-2"><?=$this->translate('Contribute'); ?></a>
+                            
+                            <!--<img class="img-fluid" src="/assets/img/internetbanking.svg" alt="Image Description">-->
+                            <p class="font-size-1" style="font-size: 0.7rem;"><?=$this->translate('Payment are secured using omise.co'); ?></p>
+
+                            </div>
+                        </div>
+                        <!-- End card -->
+                        <?php 
+                        }  
+                        ?>
+                        
+                        <?php 
+                        if(!empty($total_funds)){  
+                        ?>
+                        <!-- card -->
+                        <div class="card  mb-3"> 
+                            <div class="card-body text-center">
+                                <h2 class="h2"><?=number_format($detail['amount_total'], 0);?> ฿ </h2>
+                                <p><?=$this->translate('collected'); ?></p>
+                                <div class="row potdetails" style="font-size: 0.7rem;">
+                                    <div class="col-sm-6"><?=number_format($detail['participants'], 0);?> <?=$this->translate('participants'); ?></div>
+                                    <?php
+                                    if(!empty($detail['day_diff'])){ 
+                                    ?>
+                                    <div class="col-sm-6"><?=number_format($detail['day_diff']->days, 0);?> <?=$this->translate('days left'); ?></div>
+                                    <?php
+                                    } 
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End card -->
+                        <?php
+                        }
+                        ?>
+
+                        <?php
+                        if(!empty($menu_enable)){   
+                            include("menu.phtml");
+                        }
+                        ?>
+                        
+                        <?php 
+                        if(!empty($listRandom) && empty($detail['setting_hide_participarts_list'])){
+                        ?>
+                        <!-- card -->
+                        <div class="card  mb-3">
+                            <div class="card-header pt-4 pb-3 px-0 mx-4">
+                                <h3 class="h6 mb-0"><?=$this->translate('Participants'); ?></h3>
+                            </div>
+                            <div class="card-body"> 
+                                <?php
+                                foreach($listRandom as $key=>$val){ 
+                                ?>
+                                <article class="card border-0 mb-2">
+                                  <div class="card-body p-0">
+                                    <div class="media"> 
+                                      <div class="u-avatar mr-3">
+                                        <img class="img-fluid rounded" src="<?=$val['user_cover'];?>" alt="<?=$val['name'];?>">
+                                      </div>
+                                      <div class="media-body text-left">
+                                        <h4 class="h6 font-weight-normal mb-0"><?=$val['name'];?></h4>
+                                        <small class="form-text text-muted mb-0 mt-0"><?=number_format($val['total'],2);?> <?=$this->translate('THB'); ?></small>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </article>
+                                <?php 
+                                }      
+                                ?>
+                            </div>
+                        </div>
+                        <!-- End card -->
+                        <?php
+                        }
+                        ?>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== --> 
+<?php
+if(0){
+?>
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: '<?=$webURL;?>/<?=$lang;?>/view/<?=!empty($detail['slugify'])?$detail['slugify']:$id;?>',
+  }, function(response){});
+} 
+</script>
+<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<?php
+}
+?> 

@@ -1,0 +1,174 @@
+ 
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      	<h1>
+        	<?=$detail['name_en'];?>
+        	<small>Preview</small>
+      	</h1>
+      	<ol class="breadcrumb">
+        	<li><a href="<?php echo $this->url('home');?>admin/dashboard/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        	<li><a href="<?php echo $this->url('home');?>admin/<?=$this->action;?>/"><?=$this->page_name;?></a></li>
+        	<li class="active">edit</li>
+      	</ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      	<div class="row">
+      	   
+        	<!-- left column -->
+        	<div class="col-md-3">
+            	<div class="box box-primary"></div>
+                <center><img src="<?=$detail['image'];?>" class="img-responsive" alt="<?=$detail['name_en'];?>"></center>
+            </div>
+        	<!-- right column -->
+        	<div class="col-md-9"> 
+          		<!-- general form elements -->
+          		<div class="box box-primary">
+            		<div class="box-header with-border"> 
+              		<h3 class="box-title">Information</h3>
+            	</div><!-- /.box-header -->  
+            	<!-- form start -->
+            	<form role="form" action="<?php echo $this->url('home');?>admin/<?=$this->action;?>/?task=edit&id=<?=$detail['id'];?>" name="quest" enctype="multipart/form-data" method="post">
+                	<input type="hidden" name="id" id="id" value="<?=$detail['id'];?>"> 
+                	<textarea class="form-control " id="removeImage" name="removeImage" rows="3" style="display:none;"></textarea> 
+              		<div class="box-body"> 
+                    	<ul class="nav nav-tabs">
+                    	    <?php
+                    	    foreach($languages AS $key=>$value){
+                    	    ?>
+                            <li class="<?=($key==1)?'active':'';?>"> 
+                                <a data-toggle="tab" href="#menu<?=$key?>"><?=$value['name'];?></a>
+                            </li>
+                            <?php
+                    	    }  
+                            ?>
+                        </ul>
+                        
+                        <div class="tab-content">
+                            <?php
+                    	    foreach($languages AS $key=>$value){
+                    	    ?>
+                            <div id="menu<?=$key;?>" class="tab-pane fade in <?=($key==1)?'active':'';?>">
+                                <div class="form-group">
+                          			<label for="name_<?=$value['code'];?>">Name</label> 
+                          			<input type="text" class="form-control " id="name_<?=$value['code'];?>" name="data[name_<?=$value['code'];?>]" value="<?=$detail['name_'.$value['code']];?>" placeholder="name" oninput="InvalidMsg(this)"  required />
+                        		</div>
+                        		<div class="form-group">
+                          			<label for="keywords_<?=$value['code'];?>">Keywords</label> 
+                          			<input type="text" class="form-control " id="keywords_<?=$value['code'];?>" name="data[keywords_<?=$value['code'];?>]" value="<?=$detail['keywords_'.$value['code']];?>" placeholder="keywords" oninput="InvalidMsg(this)" />
+                        		</div>
+                        		<div class="form-group">
+                          			<label for="description_short_<?=$value['code'];?>">Description short</label> 
+                          			<textarea class="form-control " id="description_short_<?=$value['code'];?>" name="data[description_short_<?=$value['code'];?>]" placeholder="Description short" rows="3"><?=$detail['description_short_'.$value['code']];?></textarea> 
+                        		</div>
+                        		
+                        		<?php
+                        		$description = (array)json_decode($detail['description_'.$value['code']]); 
+                        		?>
+                        		<div class="input-description" id="input-description-<?=$value['code'];?>">
+                        		    <?php
+                        		    $key = 0; 
+                        		    foreach ($description as $k=>$val) { 
+                        		        if(strpos($k, 'image') !== false){  
+                        		    ?>
+                            		       <div class="form-group" id="imgBlock-<?=$value['code'];?>-<?=($key+1);?>">	
+                            		           <label for="id=" pic-<?=$value['code'];?>-<?=($key+1);?>"="">Image</label>	
+                            		           <input type="file" id="pic-<?=$value['code'];?>-<?=($key+1);?>" name="pic" accept="image/*" onchange="imagePreview(this,'img-preview-<?=$value['code'];?>-<?=($key+1);?>')">	
+                            		           <textarea class="form-control" name="data[description_<?=$value['code'];?>][]" id="src-preview-<?=$value['code'];?>-<?=($key+1);?>" rows="5" style="display:none;"><?=$val;?></textarea>	
+                            		           <div id="img-preview-<?=$value['code'];?>-<?=($key+1);?>">
+                            		               <img src="<?php echo $this->url('home');?>images/news/<?=$val;?>" style="max-width:25%;"> 
+                            		           </div>	
+                            		           <?php
+                            		           if($key !=0){
+                            		           ?>
+                            		           <button type="button" id="removeImg-<?=$value['code'];?>-<?=($key+1);?>" onclick="removeImg(this);" class="btn btn-danger btn-xs removeImg"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
+                            		           <?php
+                            		           }
+                            		           ?>
+                            		       </div>
+                        		    <?php      
+                        		        }else{
+                        		    ?>
+                        		            <div class="form-group" id="txtBlock-<?=$value['code'];?>-<?=($key+1);?>">	
+                        		                <label for="removeTxt-<?=$value['code'];?>-<?=($key+1);?>">Content</label>	
+                        		                <textarea class="form-control" name="data[description_<?=$value['code'];?>][]" placeholder="Content" rows="5" required=""><?=$val;?></textarea>
+                        		                <?php
+                                		        if($key !=0){ 
+                                		        ?>
+                        		                <p>	     
+                        		                    <button type="button" id="removeTxt-<?=$value['code'];?>-<?=($key+1);?>" onclick="removeTxt(this);" class="btn btn-danger btn-xs removeTxt"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>	
+                        		                </p>
+                        		                <?php
+                                		        }
+                        		                ?>
+                        		            </div> 
+                        		    <?php      
+                        		        }
+                        		        $key++;
+                        		    }  
+                        		    ?> 
+                        		    </div>
+                            		<hr />
+                            		<div class="form-group"> 
+                            		     <button type="button" id="btn-addContent-<?=$value['code'];?>" class="btn btn-success"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Add Content</button>
+                            		     <button type="button" id="btn-addImage-<?=$value['code'];?>" class="btn btn-info"><i class="fa fa-picture-o" aria-hidden="true"></i> Add Image</button>
+                            		</div>  
+                        		
+                            </div> 
+                            <?php
+                    	    }      
+                            ?>
+                        </div> 
+                        <div class="form-group"> 
+                  			<label for="category">Category</label>
+                  			<select name="data[cate_id]" id="cate_id" class="form-control">
+                  			    <?php
+                  			    foreach($cate AS $key=>$value){ 
+                  			    ?>
+                  			    <option value="<?=$value['id']?>" <?=($detail['cate_id']==$value['id'])?'selected':'';?>><?=$value['name']?></option>
+                  			    <?php
+                  			    }
+                  			    ?>
+                  			</select> 
+                		</div>  
+                        <div class="form-group"> 
+                  			<label for="exampleInputFile">Cover 695x460</label>
+                  			<input type="file" id="pic" name="pic" onchange="imagePreview(this,'img-preview')">
+                  			<div id="img-preview"></div>  
+                		</div> 
+                        <div class="checkbox">
+                  			<label>
+                    			<input type="checkbox" name="status" value="1" data-toggle="toggle" data-off="Disabled" data-on="Enabled"  <?=($detail['status']==1)?'checked':'';?>> Active
+                  			</label>
+                		</div>
+              		</div>
+              		<div class="box-footer">
+                		<button type="submit" class="btn btn-primary" style="float:right; padding-right:10px;">Submit</button>
+              		</div>
+            	</form>
+          	</div>
+		</div>
+  	</section>
+</div>
+<script> 
+
+/*
+	$('.editor-content').summernote({  
+	  height: 500,   //set editable area's height
+	  codemirror: { // codemirror options
+	    theme: 'monokai'
+	  },  
+	  callbacks: {
+	    onImageUpload : function(image) {
+			uploadImage(image[0], this);
+		},
+		onMediaDelete : function($target, editor, $editable) {
+			console.log($target[0].src);
+			// img
+			removeImage($target[0].src);
+		}
+	  } 
+	}); */
+</script>

@@ -1,0 +1,40 @@
+<!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar"> 
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel"> 
+        <div class="pull-left image"> 
+          <?php 
+          //echo $FullLink; 
+          if(!empty($admin->image)){   
+          ?>
+            <img src="<?php echo $this->urlFile;?>/admin/<?=$admin->image;?>" class="img-circle" alt="User Image">
+          <?php
+          }else{      
+          ?>   
+            <img src="<?php echo $this->url('home');?>images/photo_not_available.jpg" class="img-circle" alt="User Image">
+          <?php 
+          }   
+          ?>
+        </div>
+        <div class="pull-left info">
+          <p><?=$admin->name;?></p> 
+          <a href="<?php echo $this->url('home');?>admin/admin/act/editForm/id/<?=$admin->id;?>"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+     
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">    
+        <li class="header"><?=$title;?></li>  
+        <li class="<?php if($action=='index'){ ?>active<?php }?>"><a href="<?php echo $this->url('home');?>admin/index/"><i class="fa fa-circle-o text-red"></i> <span>Dashboard</span></a></li>
+        <li class="<?php if($action=='admin'){ ?>active<?php }?>"><a href="<?php echo $this->url('home');?>admin/admin/"><i class="fa fa-circle-o text-red"></i> <span>Admin</span></a></li>
+        <li class="<?php if($action=='category'){ ?>active<?php }?>"><a href="<?php echo $this->url('home');?>admin/category/"><i class="fa fa-circle-o text-red"></i> <span>Category</span></a></li>
+        <li class="<?php if($action=='subcategory'){ ?>active<?php }?>"><a href="<?php echo $this->url('home');?>admin/subcategory/"><i class="fa fa-circle-o text-red"></i> <span>Sub Category</span></a></li>
+        <li class="header">LABELS</li>   
+        <li><a href="<?php echo $this->url('home');?>" target="_blank"><i class="fa fa-circle-o text-red"></i> <span>Frontend</span></a></li>
+        <li><a href="<?php echo $this->url('home');?>admin/logout/" onclick="return confirm('Are you sure you want to log out?');"><i class="fa fa-circle-o text-red"></i> <span>Logout</span></a></li>
+      </ul> 
+    </section>  
+    <!-- /.sidebar -->
+  </aside>

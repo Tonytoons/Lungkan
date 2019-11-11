@@ -1,0 +1,74 @@
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header"> 
+      	<h1> 
+        	Admin 
+        	<small>Add new</small>
+      	</h1>
+      	<ol class="breadcrumb">
+        	<li><a href="<?php echo $this->url('home');?>dashboard/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        	<li><a href="<?php echo $this->url('home');?>admin/admin/">Admin</a></li>
+        	<li class="active">new</li>
+      	</ol>
+    </section>
+
+    <!-- Main content --> 
+    <section class="content">
+      	<div class="row">
+        	<!-- right column -->
+        	<div class="col-md-6"> 
+          		<!-- general form elements -->
+          		<div class="box box-primary">
+            		<div class="box-header with-border"> 
+              		<h3 class="box-title">Information</h3>
+            	</div>
+            	<!-- /.box-header -->
+            	<!-- form start --> 
+            	<form role="form" action="<?php echo $this->url('home');?>admin/admin/?task=add" enctype="multipart/form-data" onSubmit="return checkAddUser()" name="quest" method="post">
+                	<div class="box-body">
+                    	<div class="form-group"> 
+                          	<label>Level</label>
+                          	<select class="form-control" name="data[level]">
+                            	<option value="1">Admin</option>
+                                <option value="2">Content</option>
+                            </select>
+                        </div>
+                		<div class="form-group">
+                  			<label for="exampleInputEmail1">Name</label>
+                  			<input type="text" class="form-control" id="name" name="data[name]" placeholder="Name">
+                		</div>
+                        <div class="form-group">
+                  			<label for="exampleInputEmail1">Email</label>
+                  			<input type="text" class="form-control" id="email" name="data[email]" placeholder="Email">
+                		</div>
+                        <div class="form-group">
+                  			<label for="exampleInputEmail1">Password</label>
+                  			<input type="password" class="form-control" id="password" name="data[password]" placeholder="Password">
+                		</div>
+                        <div class="form-group">
+                  			<label for="exampleInputEmail1">Confirm Password</label>
+                  			<input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm Password">
+                		</div> 
+                		<div class="form-group">
+                  			<label for="exampleInputFile">Image 100x100</label>
+                  			<input type="file" id="pic" name="pic" onchange="imagePreview(this,'img-preview')">
+                  			<div id="img-preview"></div>  
+                  			<p class="help-block">Example block-level help text here.</p>
+                		</div>
+                        
+                        <div class="checkbox">
+                  			<label>
+                    			<input type="checkbox" name="status" value="1" data-toggle="toggle" data-off="Disabled" data-on="Enabled"> Active
+                  			</label>
+                		</div>
+              		</div><!-- /.box-body -->
+
+              		<div class="box-footer">
+                		<button type="submit" class="btn btn-primary" style="float:right;">Submit</button>
+              		</div>
+            	</form>
+          	</div>
+		</div>
+  	</section>
+</div>

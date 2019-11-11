@@ -1,0 +1,198 @@
+<!-- ========== MAIN CONTENT ========== -->
+<div id="fb-root"></div>
+<!--
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2&appId=1682916021927823&autoLogAppEvents=1"></script>
+-->
+<main class="content" id="content" role="main">
+    <div class="container  space-2 space-md-2">
+        <div class="row">
+            <div class="col-sm-10 col-md-10 col-lg-10 ml-md-auto mr-md-auto">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <?php 
+                      include("topedit.phtml"); 
+                      ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12"> 
+                        <!-- Card -->
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                              <form class="js-validate mx-md-auto mt-5" name="ContactInfoform" id="ContactInfoform" action="<?=$this->url('home').$this->lang;?>/transaction/<?=$id;?>/" method="post" enctype="multipart/form-data" novalidate="novalidate">
+                                <div class="row"> 
+                                    <div class="col-sm-11 col-md-11 col-lg-11 ml-md-auto mr-md-auto">
+
+                                        <div class="row">
+                                            <?php
+                                            if(!empty($pay_error)){
+                                            ?>
+                                            <div class="col-sm-12 col-md-12 col-lg-9 ml-md-auto mr-md-auto" id="msg-error">
+                                              <div class="alert alert-danger" role="alert">
+                                                <h4 class="alert-heading"><?=$this->translate('Oops! Something went wrong.');?></h4>
+                                                <hr /> 
+                                                <p class="alert-text mb-0"><?=$pay_error;?></p>
+                                              </div> 
+                                            </div>
+                                            <?php
+                                            }
+                                            ?>
+                                            
+                                            <?php
+                                              $fname = '';
+                                              $lname = '';  
+                                              $fullname = !empty($this->Users->name)?$this->Users->name:'';
+                                              if(!empty($fullname)){ 
+                                                $name = explode(' ', $fullname);
+                                                $fname = !empty($name[0])?$name[0]:'';
+                                                $lname = '';
+                                                foreach($name as $k=>$v){
+                                                  if($k!=0)$lname .= $v;
+                                                } 
+                                              }
+                                            ?>
+                                            
+                                            
+                                            <?php
+                                            if(empty($this->Users->email)){
+                                            ?>
+                                            <div class="col-sm-12 col-md-12 col-lg-12 ml-md-auto mr-md-auto">
+                                                <h5 class="form-text mb-5 mt-3"><?=$this->translate('Contact information'); ?></h5>
+                                            </div>
+                                            
+                                            <div class="col-sm-12 col-md-5 col-lg-5 ml-md-auto mr-md-auto">
+                                              <div class="js-form-message form-group"> 
+                                                <button type="button" onclick="connectFackbook();" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f fa-2x"></i><?=$this->translate('Signin With Facebook'); ?></button>
+                                              </div>
+                                              <div class="js-form-message form-group"> 
+                                                  <a href="<?=$this->url('home').$this->lang;?>/loginLine/?act=login&return_url=<?=$FullLink;?>" class="btn btn-line btn-block"><i class="fab fa-line fa-2x"></i><?=$this->translate('Signin With Line'); ?></a>
+                                              </div> 
+                                              <!--
+                                              <div class="fb-login-button" data-width="300px" data-size="large"  data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                                              -->
+                                            </div>
+                                            
+                                            <div class="col-sm-1 col-md-1 col-lg-1 text-center">
+                                                <div class="border-vertical-center"></div>
+                                            </div>
+                                            
+                                            <div class="col-sm-12 col-md-6 col-lg-6 ml-md-auto mr-md-auto text-left">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                      
+                                                      <div class="form-group">
+                                                        <input type="text" class="form-control" id="fname" name="fname" value="<?=$fname;?>" data-msg="<?=$this->translate('Please enter first name.'); ?>" placeholder="<?=$this->translate('First name'); ?>">
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                      <div class="form-group">
+                                                        <input type="text" class="form-control" id="lname" name="lname"  value="<?=$lname;?>" data-msg="<?=$this->translate('Please enter Last name.'); ?>"  placeholder="<?=$this->translate('Last name'); ?>">
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                      <div class="form-group">   
+                                                        <input type="email" class="form-control" id="email" name="email"  value="<?=!empty($this->Users->email)?$this->Users->email:'';?>"  data-msg="<?=$this->translate('Please enter a valid email address.'); ?>"   placeholder="<?=$this->translate('Email address'); ?>">
+                                                      </div> 
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                            <?php
+                                            }else{        
+                                            ?> 
+                                              <input type="hidden" class="form-control" id="fname" name="fname"  value="<?=$fname;?>">
+                                              <input type="hidden" class="form-control" id="lname" name="lname"  value="<?=$lname;?>">
+                                              <input type="hidden" class="form-control" id="email" name="email"  value="<?=!empty($this->Users->email)?$this->Users->email:'';?>">
+                                                                     
+                                              <div class="col-sm-12 col-md-6 col-lg-6 ml-md-auto mr-md-auto text-center">
+                                                 <img class="img-fluid rounded-circle user-cover-img" src="<?=!empty($this->Users->image)?$this->Users->image:'';?>" alt="<?=!empty($this->Users->name)?$this->Users->name:'';?>">  
+                                                 <span class="h5 font-weight-medium"><?=!empty($this->Users->name)?$this->Users->name:'';?></span>
+                                              </div> 
+                                            
+                                            <?php 
+                                            } 
+                                            ?>
+                                        </div>
+                                        
+                                        <div class="row">
+                                          <div class="col-sm-12 col-md-12 col-lg-12 mt-5 ml-md-auto mr-md-auto">
+                                              <h5 class="form-text mb-5 mt-3"><?=$this->translate('Contribution information'); ?></h5>
+                                          </div> 
+                                          <div class="col-12 col-sm-8 col-md-8 col-lg-8 ml-md-auto mr-md-auto">
+                                            <div class="form-group text-left">
+                                              <input type="number" class="form-control" name="amount" id="amount" min="99" step="any" value="100" data-msg="<?=$this->translate('Enter contribution amount.'); ?>" placeholder="<?=$this->translate('Enter contribution amount.'); ?>">
+                                            </div>    
+                                            <div class="row"> 
+                                              <div class="col-12 col-sm-6 col-md-6 col-lg-5 ml-md-auto mr-md-auto text-left">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                  <input type="radio" id="payment-type1" name="type" value="1" class="custom-control-input" checked>
+                                                  <label class="custom-control-label" for="payment-type1"><?=$this->translate('Credit / Debit Cards'); ?></label>
+                                                </div>
+                                                <img src="<?=$this->url('home');?>assets/img/payment-1.png" class="img-fluid" alt="">
+                                              </div>    
+                                              <div class="col-12 col-sm-6 col-md-6 col-lg-5 ml-md-auto mr-md-auto">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                  <input type="radio" id="payment-type2" name="type"  value="2" class="custom-control-input">
+                                                  <label class="custom-control-label" for="payment-type2"><?=$this->translate('Internet Banking'); ?></label>
+                                                </div> 
+                                                <img src="<?=$this->url('home');?>assets/img/payment-2.png" class="img-fluid" alt=""> 
+                                              </div>
+                                              
+                                              <div class="col-12 col-sm-6 col-md-6 col-lg-6 ml-md-auto mr-md-auto text-center mt-5 mb-5"> 
+                                                <a href="<?=$this->url('home').$this->lang;?>/view/<?=$id;?>/" class="link-back-2"><i class="fa fa-caret-left" aria-hidden="true"></i> <?=$this->translate('Go Back'); ?></a>
+                                                <button type="submit" class="btn btn-primary btn-participate"><?=$this->translate('Participate'); ?></button>
+                                              </div>
+                                            </div>
+                                             
+                                            
+                                          </div>  
+                                        </div> 
+                                    </div>
+                                </div>
+                              </form>
+                            </div>
+                        </div>
+                        <!-- End Card -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript"> 
+ 
+$("form[name='ContactInfoform']").validate({ 
+  rules: { 
+    amount:"required", 
+    fname:"required",
+    lname:"required",
+    email: {
+      required: true,
+      email: true
+    }, 
+  },   
+  messages: { 
+    amount:$('#amount').data('msg'),
+    fname: $('#fname').data('msg'),
+    lname: $('#lname').data('msg'), 
+    email: $('#signinSrEmail').data('msg')
+  },   
+  submitHandler: function(form) {
+    btn_loader = $('.btn-participate');  
+    $('.btn-participate').buttonLoader('start'); 
+     
+    return true;  
+    
+  }, 
+  highlight: function(element, errorClass, validClass) {
+    $(element).removeClass('success-class').addClass('error-class');
+  },
+  unhighlight: function(element, errorClass, validClass) {
+    $(element).removeClass('error-class').addClass('success-class');
+  }
+}); 
+
+$("#amount").click(function(){ 
+  $("#msg-error").fadeOut('slow');
+});
+
+</script>

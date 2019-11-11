@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <!-- Author -->
+        <div class="media mb-3"> 
+            <div class="u-avatar mr-3 img-pot" style="background-image:url(<?=!empty($detail['thumbnail'])?$detail['thumbnail']:$detail['image'];?>);width:100px;height:70px;background-size:cover;background-position:center;"> 
+                
+            </div> 
+            <div class="media-body">  
+                <h1 class="h1 d-inline-block"><?=$detail['name'];?></h1>
+            </div>  
+            <a href="<?=$this->url('home').$this->lang;?>/view/<?=!empty($detail['slugify'])?$detail['slugify']:$id;?>"><?=$this->translate('View my pot'); ?></a>
+        </div>
+    </div>
+</div>  

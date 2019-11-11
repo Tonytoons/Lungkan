@@ -1,0 +1,5 @@
+[27-Apr-2018 15:32:40 UTC] PHP Notice:  Only variables should be passed by reference in /home/ubuntu/workspace/public/backupdb/backup.php on line 12
+[27-Apr-2018 15:33:41 UTC] PHP Notice:  Only variables should be passed by reference in /home/ubuntu/workspace/public/backupdb/backup.php on line 12
+[14-Mar-2019 10:44:10 UTC] PHP Notice:  Only variables should be passed by reference in /home/ubuntu/workspace/public/backupdb/backup.php on line 12
+[05-Apr-2019 13:31:35 UTC] PHP Notice:  Only variables should be passed by reference in /home/ubuntu/workspace/public/backupdb/index.php on line 12
+[16-May-2019 02:52:49 UTC] PHP Notice:  Only variables should be passed by reference in /home/ubuntu/workspace/public/backupdb/index.php on line 12

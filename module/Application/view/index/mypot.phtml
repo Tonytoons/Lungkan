@@ -1,0 +1,46 @@
+<main id="content" role="main">
+    <?php
+    include("breadcrumb.phtml"); 
+    ?>  
+    <!-- Content Section -->
+    <div class="bg-light">
+        <div class="container space-2 space-md-2">
+            <div class="row justify-content-between align-items-center mb-4">
+                <!-- Title -->
+                <div class="col-sm-4 col-md-6 mb-3 mb-sm-0"> 
+                    <h2 class="h6 mb-0"><?=!empty($potList['total'])?$potList['total']:0;?> <?=$this->translate('projects found'); ?></h2>
+                </div>
+                <!-- End Title -->
+            </div>
+        </div> 
+
+        <div id="shopItemsContent" class="container">
+            <div class="row">
+                
+                <?php
+                if(!empty($potList['total'])){
+                    foreach($potList['items'] as $key=>$value){
+                        include("item-list.phtml");  
+                    } 
+                }
+                ?>
+            </div>
+            
+            <?php
+            if(!empty($pagination)){
+            ?>
+            <!-- Pagination -->
+            <div class="d-flex justify-content-between align-items-center">
+                <nav aria-label="Page navigation">
+                    <?php
+                    print_r($pagination); 
+                    ?>
+                </nav>
+            </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+    <!-- End Content Section -->
+</main>

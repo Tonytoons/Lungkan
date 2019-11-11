@@ -1,0 +1,154 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main class="content" id="content" role="main">
+    <div class="container space-2 space-md-2">
+        <div class="row">
+            <div class="col-sm-10 col-md-10 col-lg-10 ml-md-auto mr-md-auto">
+                 
+               <?php
+                        include("topedit.phtml"); 
+                        ?>
+                
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <?php
+                        include("menu.phtml"); 
+                        ?>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                        <!-- Card -->
+                        <div class="card mb-3">
+                            <div class="card-body">  
+                                <form class="js-validate mx-md-auto" name="settingpotform" id="settingpotform" action="" onsubmit="return settingPot();" method="post" enctype="multipart/form-data" novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                            <input type="hidden" name="user_id" id="user_id" value="<?=!empty($this->Users->id)?$this->Users->id:'';?>"/> 
+                                            <input type="hidden" name="id" id="id" value="<?=!empty($this->id)?$this->id:'';?>"/>  
+                                            <div class="row mt-3">
+                                                <div class="col-md-4">
+                                                    <label for="select-participart"><?=$this->translate('Select type participation'); ?></label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="custom-control custom-radio custom-control-inline">
+                                                      <input type="radio" id="type_participation1" name="type_participation" value="1" class="custom-control-input" <?=($detail['setting_type_participation']==1)?'checked':'';?>>
+                                                      <label class="custom-control-label" for="type_participation1"><?=$this->translate('Open'); ?></label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio custom-control-inline">
+                                                      <input type="radio" id="type_participation2" name="type_participation" value="2" class="custom-control-input" <?=($detail['setting_type_participation']==2)?'checked':'';?>>
+                                                      <label class="custom-control-label" for="type_participation2"><?=$this->translate('Suggested'); ?></label>
+                                                    </div>
+                                                    <div class="custom-control custom-radio custom-control-inline">
+                                                      <input type="radio" id="type_participation3" name="type_participation" value="3" class="custom-control-input" <?=($detail['setting_type_participation']==3)?'checked':'';?>>
+                                                      <label class="custom-control-label" for="type_participation3"><?=$this->translate('Fixed'); ?></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             
+                                            <div class="row mt-3">
+                                                <div class="col-md-4">
+                                                    <label for="total-funds"><?=$this->translate('Total funds'); ?></label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="custom-control custom-radio custom-control-inline">
+                                                      <input type="radio" id="total_fund1" name="total_fund" class="custom-control-input" value="1"  <?=($detail['setting_total_funds']==1)?'checked':'';?>>
+                                                      <label class="custom-control-label" for="total_fund1"><?=$this->translate('Show'); ?></label> 
+                                                    </div>
+                                                    <div class="custom-control custom-radio custom-control-inline">
+                                                      <input type="radio" id="total_fund2" name="total_fund" class="custom-control-input" value="2"  <?=($detail['setting_total_funds']==2)?'checked':'';?>>
+                                                      <label class="custom-control-label" for="total_fund2"><?=$this->translate('Hide'); ?></label>
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                            
+                                            <div class="row mt-3">
+                                                <div class="col-md-4">
+                                                    <label for="deadline" class="mt-3"><?=$this->translate('Choose a deadline'); ?></label>
+                                                </div>
+                                                <div class="col-md-5"> 
+                                                    <div class="js-focus-state"> 
+                                                        <div class="input-group">
+                                                          <input type="text" class="form-control js-range-datepicker"  name="deadline"  id="deadline" placeholder="<?=$this->translate('Deadline date'); ?>" aria-label="<?=$this->translate('Deadline date'); ?>" value="<?=($detail['setting_deadline']!='0000-00-00')?$detail['setting_deadline']:'';?>">
+                                                          <div class="input-group-append"> 
+                                                            <span class="input-group-text"> 
+                                                              <span class="fas fa-calendar-alt"></span>
+                                                            </span>
+                                                          </div>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mt-3">
+                                                <div class="col-md-4">
+                                                    <label for="deadline" class="mt-3"><?=$this->translate('Set a goal'); ?></label>
+                                                </div>
+                                                <div class="col-md-5"> 
+                                                    <div class="js-focus-state"> 
+                                                        <div class="input-group">  
+                                                          <input type="number" class="form-control" name="goal" id="goal" placeholder="<?=$this->translate('in THB'); ?>" aria-label="<?=$this->translate('in THB'); ?>" min="0" value="<?=($detail['setting_goal'])?$detail['setting_goal']:0;?>">
+                                                          <div class="input-group-append">  
+                                                            <span class="input-group-text"> 
+                                                              <span class="">฿</span>
+                                                            </span>
+                                                          </div>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                            </div> 
+                                           
+                                             
+                                            <div class="form-group mt-5">
+                                                
+                                                <div class="custom-control custom-checkbox">
+                                                  <input type="checkbox" class="custom-control-input" id="opne_invite" name="opne_invite"  <?=($detail['setting_open_invite']==1)?'checked':'';?>>
+                                                  <label class="custom-control-label" for="opne_invite">
+                                                    <?=$this->translate('Open Invite'); ?>
+                                                  </label>
+                                                </div>
+                                                 
+                                                <div class="custom-control custom-checkbox">
+                                                  <input type="checkbox" class="custom-control-input" id="hide_participarts_list" name="hide_participarts_list" <?=($detail['setting_hide_participarts_list']==1)?'checked':'';?>>
+                                                  <label class="custom-control-label" for="hide_participarts_list">
+                                                    <?=$this->translate('Hide participarts list'); ?>
+                                                  </label>
+                                                </div>
+                                                 
+                                            </div>  
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-12 text-left mt-3 mb-5">
+                                            <button type="submit" class="btn btn-primary btn-settingpot transition-3d-hover"><?=$this->translate('Save'); ?></button>
+                                        </div> 
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+
+<script type="text/javascript">
+var deadline = '<?=($detail['setting_deadline']!='0000-00-00')?$detail['setting_deadline']:$detail['event_date'];?>';
+$(document).on('ready', function() {   
+    // initialization of text editors
+    //$.HSCore.components.HSSummernoteEditor.init('.js-summernote-editor');
+    
+    //$.HSCore.components.HSRangeDatepicker.init('.js-range-datepicker');
+    //$('.js-range-datepicker').flatpickr();  
+    $('.js-range-datepicker').flatpickr({  
+      altInput: true,
+      altFormat: "F j, Y",
+      dateFormat: "Y-m-d",
+      minDate: deadline,   
+      onClose: function(selectedDates, dateStr, instance){
+        $(".flatpickr-input").removeClass('error-class'); 
+        //console.log(this);  
+      }
+  }); 
+});   
+</script>    

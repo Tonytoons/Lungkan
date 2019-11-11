@@ -1,0 +1,11 @@
+<div class="col-sm-6 col-lg-4 mb-5">
+  <a class="d-block card card-text-dark border-0 text-center transition-3d-hover <?=($value['status']==2)?'grayscale':'';?>" href="<?=$this->url('home').$this->lang;?>/view/<?=$value['slugify']?>">
+      <img class="img-fluid rounded" src="<?=!empty($value['thumbnail'])?$value['thumbnail']:$value['image'];?>" alt="<?=$value['name'];?>">
+      <div class="card-body pt-4 px-4 text-left">    
+        <h2 class="h5 mb-1"><?=$value['name'];?></h2>
+        <span class="d-block"><?=$this->translate('Total collected:'); ?> <?=number_format($value['amount_total'],2);?> <?=$this->translate('THB'); ?></span>
+        <span class="d-block"> <?=$this->translate('Participants:'); ?> <?=number_format($value['participants']);?> </span>
+        <span class="d-block"> <?=$this->translate('Created on:'); ?>  <?=$value["date_fomat"];?></span>
+      </div> 
+    </a>
+</div>   

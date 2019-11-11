@@ -1,0 +1,63 @@
+<?php 
+echo $this->doctype();
+?>
+<html lang="<?php echo $lang;?>"> 
+    <head>
+        <?php 
+        if ($this->headTitle() == 'SET') {  
+            echo $this->headTitle();    
+        } else {  
+            echo $this->headTitle('');      
+        }
+        echo $this->headMeta();      
+        ?> 
+        <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+        <meta http-equiv="Cache-control" content="public">
+        <META HTTP-EQUIV="EXPIRES" CONTENT="<?php echo gmdate("D, d M Y H:i:s", time() + (60*60)) . " GMT"; ?>">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="MobileOptimized" content="767">
+        <meta name="HandheldFriendly" content="True">
+        <meta name='mobile-web-app-capable' content='yes'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#ffffff">
+        <meta name='application-name' content='ZF3'> 
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+        <meta name='apple-mobile-web-app-title' content='ZF3'>
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+        <META NAME="AUTHOR" CONTENT="Tonytoons">
+        <META name="revisit-after" content="7 days"> 
+        <META NAME="COPYRIGHT" CONTENT="&copy; <?php echo date('Y') ?> ZF3">
+            
+         <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="<?php echo $this->url('home'); ?>images/favicon/favicon.png" type="image/x-icon">   
+        <link rel="apple-touch-icon" type="image/x-icon" href="<?php echo $this->url('home'); ?>images/favicon/apple-touch-icon-57-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="<?php echo $this->url('home'); ?>images/favicon/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="<?php echo $this->url('home'); ?>images/favicon/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="<?php echo $this->url('home'); ?>images/favicon/apple-touch-icon-144-precomposed.png">
+        
+        <?php echo $this->headLink(); ?> 
+        <?php echo $this->headStyle(); ?>
+        <?php echo $this->headScript(); ?>
+        
+        <script type="text/javascript">  
+            var basePath = '<?php echo $this->url('home'); ?>'; 
+            var action = '<?php echo $action;?>';
+            var lang = '<?php echo $lang;?>';
+            var id = '<?=!empty($id)?$id:'';?>';
+            var page = '<?=!empty($page)?$page:1;?>';
+        </script> 
+        
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+        
+    </head> 
+    <body class="<?=($this->controller=='admin')?'skin-blue':'';?>"> 
+        <div id="fb-root"></div> 
+        <?php echo $this->content; ?>
+    </body>
+</html>  
+<?php 
+echo $this->inlineScript(); 
+?>

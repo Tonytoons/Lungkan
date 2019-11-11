@@ -1,0 +1,99 @@
+
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main">
+    <!-- Login Form --> 
+    <div class="container space-2 space-md-2">
+        <form class="js-validate w-md-75 w-lg-50 mx-md-auto" name="registerform" id="registerform" action="" onsubmit="return false;" method="post" novalidate="novalidate">
+            <!-- Title -->
+            <div class="mb-7"> 
+                <h1 class="h3 font-weight-normal mb-0"><?=$this->translate('Signup'); ?></h1>
+                <p><?=$this->translate('Fill out the form to get started.'); ?></p>
+            </div>
+            <!-- End Title -->
+            <div class="js-form-message form-group"> 
+                <button type="button" onclick="connectFackbook();" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f fa-2x"></i><?=$this->translate('Signin With Facebook'); ?></button>
+            </div>
+            <div class="js-form-message form-group"> 
+                <a href="<?=$this->url('home').$this->lang;?>/loginLine/?act=login&return_url=<?=$FullLink;?>" class="btn btn-line btn-block"><i class="fab fa-line fa-2x"></i><?=$this->translate('Signin With Line'); ?></a>
+            </div>  
+            <p class="text-center mb-3 mt-3 text-or"><?=$this->translate('or with your email'); ?></p> 
+            
+            <?php
+            if(1){
+            ?>
+            <!-- Form Group -->
+            <div class="js-form-message form-group"> 
+                <label class="form-label" for="signinSrName"><?=$this->translate('Name'); ?></label>
+                <input type="text" class="form-control" name="name" id="signinSrName" placeholder="<?=$this->translate('Name'); ?>" aria-label="<?=$this->translate('Name'); ?>" data-msg="<?=$this->translate('Please enter full name.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- End Form Group --> 
+            <?php
+            }
+            ?>
+            
+            <!-- Form Group -->
+            <div class="js-form-message form-group">
+                <label class="form-label" for="signinSrEmail"><?=$this->translate('Email address'); ?></label>
+                <input type="email" class="form-control" name="email" id="signinSrEmail" placeholder="<?=$this->translate('Email address'); ?>" aria-label="<?=$this->translate('Email address'); ?>" data-msg="<?=$this->translate('Please enter a valid email address.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- End Form Group -->
+            
+            <!-- Form Group -->
+            <div class="js-form-message form-group">
+                <label class="form-label" for="signinSrPassword"><?=$this->translate('Password'); ?></label>
+                <input type="password" class="form-control" name="password" id="signinSrPassword" placeholder="********" aria-label="********" data-msg="<?=$this->translate('Your password is invalid. Please try again.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- End Form Group -->
+
+            <!-- Form Group -->
+            <div class="js-form-message form-group">
+                <label class="form-label" for="signinSrConfirmPassword"><?=$this->translate('Confirm password'); ?></label>
+                <input type="password" class="form-control" name="confirmPassword" id="signinSrConfirmPassword" placeholder="********" aria-label="********" data-msg="<?=$this->translate('Password does not match the confirm password.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+            </div>
+            <!-- End Form Group -->
+            <?php
+            if(0){
+            ?>
+            <!-- Checkbox -->
+            <div class="js-form-message mb-5">
+                <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
+                    <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox" data-msg="Please accept our Terms and Conditions." data-error-class="u-has-error" data-success-class="u-has-success">
+                    <label class="custom-control-label" for="termsCheckbox">
+                      <small>
+                        I agree to the
+                        <a class="link-muted" href="terms.html">Terms and Conditions</a>
+                      </small>
+                    </label>s
+                </div>
+                <p class="error" id="ms-terms">Please accept our Terms and Conditions.</p>
+            </div>
+            <!-- End Checkbox -->
+            <?php
+            } 
+            ?>
+
+            <!-- Button -->
+            <div class="row align-items-center mb-5">
+                <div class="col-5 col-sm-6">
+                    <span class="small text-muted"><?=$this->translate('Already have an account?'); ?></span>
+                    <?php
+                    if($this->action=='create'){
+                        $link = 'create/?act=login';
+                        if(!empty($potname)) $link.='&potname='.$potname;
+                    }else{ 
+                        $link = 'login/';  
+                    } 
+                    ?>
+                    <a class="small" href="<?=$this->url('home').$this->lang;?>/<?=$link;?>"><?=$this->translate('Login'); ?></a>
+                </div>
+
+                <div class="col-7 col-sm-6 text-right">
+                    <button type="submit" class="btn btn-primary btn-register transition-3d-hover"><?=$this->translate('Get Started'); ?></button>
+                </div>
+            </div>
+            <!-- End Button -->
+        </form>
+    </div>
+    <!-- End Login Form -->
+</main> 
+<!-- ========== END MAIN CONTENT ========== --> 

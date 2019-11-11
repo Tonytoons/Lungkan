@@ -1,0 +1,357 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main class="content" id="content" role="main">
+    <div class="container  space-2 space-md-2">
+        <div class="row">
+            <div class="col-sm-10 col-md-10 col-lg-10 ml-md-auto mr-md-auto">
+                 
+                <?php
+                include("topedit.phtml"); 
+                ?> 
+                
+                <div class="row">  
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <?php
+                        include("menu.phtml"); 
+                        ?> 
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                        <!-- card -->
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <form class="js-validate mx-md-auto mt-5" name="editpotform" id="editpotform" action="" onsubmit="return validatePot();" method="post" enctype="multipart/form-data" novalidate="novalidate">
+                                  <input type="hidden" name="user_id" id="user_id" value="<?=!empty($this->Users->id)?$this->Users->id:'';?>"/> 
+                                  <input type="hidden" name="id" id="id" value="<?=!empty($this->id)?$this->id:'';?>"/>  
+                                  <div class="row">  
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                      <div class="js-form-message form-group"> 
+                                        <label for="name"><?=$this->translate('Name of the money pot'); ?></label>
+                                        <input type="text" class="form-control" name="potname" id="potname" placeholder="<?=$this->translate('Name of your pot'); ?>" data-msg="<?=$this->translate('Plase enter name of your pot'); ?>" value="<?=$detail['name'];?>" data-error-class="u-has-error" data-success-class="u-has-success">
+                                        <label id="potname-error" class="error" for="potname"></label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="row">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                      <div class="js-form-message form-group"> 
+                                        <label for="organizer"><?=$this->translate('Name of the organizer'); ?></label>
+                                        <input type="text" class="form-control" name="organizer" id="organizer" placeholder="<?=$this->translate('Organizer by'); ?>" data-msg="<?=$this->translate('Plese enter organizer.'); ?>" value="<?=$detail['organizer'];?>" data-error-class="u-has-error" data-success-class="u-has-success">
+                                        <label id="organizer-error" class="error" for="organizer"></label>
+                                      </div>  
+                                    </div> 
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                      <div class="js-form-message js-focus-state"> 
+                                        <label for="date"><?=$this->translate('Date'); ?></label>
+                                        <div class="input-group">
+                                          <input type="text" class="form-control js-range-datepicker" name="eventdate"  id="eventdate" placeholder="<?=$this->translate('Event date'); ?>" aria-label="<?=$this->translate('Event date'); ?>" data-msg="<?=$this->translate('Plese select event date.'); ?>" value="<?=$detail['event_date'];?>" data-error-class="u-has-error" data-success-class="u-has-success">
+                                          <div class="input-group-append">   
+                                            <span class="input-group-text"> 
+                                              <span class="fas fa-calendar-alt"></span>
+                                            </span>
+                                          </div>
+                                        </div> 
+                                        <label id="eventdate-error" class="error" for="eventdate"></label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="row">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                      <div class="js-form-message form-group"> 
+                                        <label for="category"><?=$this->translate('Category'); ?></label>
+                                        <select class="form-control" id="category" name="category" data-msg="<?=$this->translate('Plese select category.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+                                          <option value="">--- <?=$this->translate('Category'); ?> ---</option>
+                                          <?php 
+                                          if(!empty($cateList)){
+                                            foreach($cateList as $key=>$value){ 
+                                          ?>
+                                              <option value="<?=$value['id'];?>" <?=($detail['category_id']==$value['id'])?'selected':'';?>><?=$value['name'];?></option>
+                                          <?php
+                                            }
+                                          }
+                                          ?>
+                                        </select> 
+                                        <label id="category-error" class="error" for="category"></label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                      <div class="js-form-message form-group <?=empty($subcateList)?'form-subcategory':'';?>" id="form-subcategory">   
+                                        <label for="subcategory"><?=$this->translate('Sub Category'); ?></label> 
+                                        <select class="form-control <?=empty($subcateList)?'disabled':'';?>" id="subcategory" name="subcategory" data-msg="<?=$this->translate('Plese select sub category.'); ?>" data-error-class="u-has-error" data-success-class="u-has-success">
+                                          <option value="">--- <?=$this->translate('Sub Category'); ?> ---</option>
+                                          <?php 
+                                          if(!empty($subcateList)){ 
+                                            foreach($subcateList as $key=>$value){
+                                          ?>
+                                              <option value="<?=$value['id'];?>" <?=($detail['subcate_id']==$value['id'])?'selected':'';?>><?=$value['name'];?></option>
+                                          <?php
+                                            }
+                                          }
+                                          ?>
+                                        </select> 
+                                        <label id="subcategory-error" class="error" for="subcategory"></label>
+                                      </div> 
+                                    </div>
+                                  </div>
+                                  
+                                 
+                                  <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <?php
+                                        if(1){ 
+                                        ?>
+                                        <div class="js-form-message form-group mt-3">  
+                                          <label for="description"><?=$this->translate('Description'); ?></label>
+                                          <!-- Text Editor Input -->
+                                          <div class="u-summernote-editor">
+                                            <div class="js-summernote-editor" data-height="200" data-msg="<?=$this->translate('Plese enter description.'); ?>"><?=$detail['description'];?></div>
+                                          </div>   
+                                          <label id="description-error" class="error" for="description"></label>
+                                          <!-- End Text Editor Input -->
+                                        </div> 
+                                        <?php 
+                                        }  
+                                        ?> 
+                                        <div class="js-form-message form-group mt-5">   
+                                          <label for="cover"><?=$this->translate('Cover picture'); ?> (1200*630px)</label> 
+                                          <input type="file" name="cover" id="img-cover" accept="image/*" class="form-control" data-msg="<?=$this->translate('Plese select cover picture'); ?>"> 
+                                          <div class="preview-croper"> 
+                                            <div class="btn-crop-block">
+                                              <div class="btn-group" role="group" aria-label="Basic example">
+                                                <!--
+                                                <button type="button" class="btn btn-success btn-sm" id="btn-crop"><?=$this->translate('Crop'); ?></button>
+                                                -->  
+                                                <button type="button" class="btn btn-danger btn-sm" id="btn-close"><?=$this->translate('Close'); ?></button>
+                                              </div>  
+                                            </div>    
+                                            <img src="<?=$detail['image'];?>" id="cover-preview" class="img-fluid w-100"> 
+                                          </div> 
+                                          <div class="upload-block">  
+                                            <div class="form-upload">     
+                                              <p><?=$this->translate('Click in this area to select your cover files here.'); ?></p>
+                                            </div> 
+                                            <label id="upload-error" class="error" for="upload"></label>
+                                          </div>  
+                                        </div>
+                                        
+                                        <div class="js-form-message form-group mt-5">  
+                                          <label for="add-album"><?=$this->translate('Albums'); ?> (1200*630px)</label> 
+                                          <div class="album">
+                                            <input type="file" name="add-album" id="add-album" accept="image/*" class="form-control">
+                                            <div id="album-list">
+                                              <?php
+                                              if(!empty($albumList)){ 
+                                                  foreach($albumList as $key=>$item){ 
+                                              ?>
+                                              <div class="album-img-block" id="block-img<?=$item['id'];?>">
+                                                <div class="remove-img" id="img<?=$item['id'];?>"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                                                <img class="album-img-list" src="<?=$item['image'];?>">
+                                              </div>
+                                              <?php 
+                                                  }
+                                              }
+                                              ?>
+                                              <div class="album-add" id="album-add" style="<?=(count($albumList)>=10)?'display:none;':''?>">
+                                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                              </div>  
+                                            </div>
+                                          </div>
+                                        </div>
+                                         
+                                    </div> 
+                                    
+                                    <div class="col-sm-12 col-md-12 col-lg-12 text-center mt-5 mb-3">
+                                      <button type="submit" class="btn btn-primary btn-editpot transition-3d-hover"><?=$this->translate('Edit my pot'); ?></button>
+                                    </div>  
+                                  </div> 
+                                </form> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+
+<script type="text/javascript">
+var img_cover = '';    
+var act = '<?=!empty($this->act)?$this->act:'';?>';   
+var id = '<?=!empty($this->id)?$this->id:'';?>';    
+var subcat_option = '<?=$this->translate('Sub Category'); ?>';
+var user_id = '';  
+$(document).on('ready', function() { 
+   
+  $('.js-summernote-editor').summernote({  
+	  height: $(".js-summernote-editor").data("height"),
+	  codemirror: {
+      theme: 'monokai'
+    },     
+    toolbar: [
+      /*['style', ['style']], */
+      ['font', ['bold', 'italic', 'underline']],
+      /*['fontname', ['fontname']], */
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      /*['height', ['height']],*/
+      ['table', ['table']],
+      ['insert', ['link', 'picture', 'video']],  
+      /*['view', ['fullscreen']],*/
+      /*['help', ['help']] */
+    ],
+	  callbacks: {
+  	  onImageUpload : function(image) {
+  			uploadImage(image[0], this);
+  		}, 
+  		onMediaDelete : function($target, editor, $editable) {
+  			removeImage($target[0].src);
+  		}
+	  } 
+	});         
+    
+  $('#eventdate').flatpickr({  
+      altInput: true,
+      altFormat: "F j, Y",
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      onClose: function(selectedDates, dateStr, instance){
+        $(".flatpickr-input").removeClass('error-class');
+      }
+  }); 
+    
+  $('.form-upload').click(function(){
+    $("#img-cover").click(); 
+  });  
+    
+  $("#img-cover").change(function() { 
+      
+      $("#btn-crop, #btn-close").show(); 
+       
+      readURL_Callback(this, function(rs){
+        $("#upload-error").hide();  
+        $(".upload-block").hide(); 
+        $('#cover-preview').attr('src', rs).show();
+        
+        setTimeout(function(){
+         
+          $(".preview-croper").show(); 
+          $('#cover-preview').rcrop({   
+            minSize : [120, 63],   
+            preserveAspectRatio : true,
+            grid : true 
+          });  
+        }, 500);  
+        
+      });
+      
+  });
+  
+  $("#btn-close").click(function(){ 
+    $('#cover-preview').rcrop('destroy'); 
+    $(".upload-block").show();  
+    $('#cover-preview, .preview-croper').hide(); 
+    $("#btn-close").hide();  
+    $('#cover-preview').attr('src','');  
+  });
+ 
+    
+  $("#category").change(function(){
+    var cate_id = $(this).val(); 
+    var url = base_url+'create/?act=subcategory&cid='+cate_id+'&rd='+makeid();
+     
+    $("#subcategory").html('<option value="">--- Loading... ---</option>').addClass("disabled");
+    
+    $.get(url,function(data){  
+      if(data.length>0){
+        var html = '<option value="">--- '+subcat_option+' ---</option>';
+        $.each(data, function(i, item) {
+          html += '<option value="'+item.id+'">'+item.name+'</option>';
+        }); 
+        $("#subcategory").html(html).removeClass("disabled");
+        $(".form-subcategory, #form-subcategory").show(); 
+      }else{   
+        $("#subcategory").html('<option value="0">--- not sub-category ---</option>'); 
+        $(".form-subcategory, #form-subcategory").hide();   
+      }  
+    },'json');
+  });
+ 
+  $("#potname, #organizer, .flatpickr-input, #eventdate").keydown(function(){
+    $(this).removeClass('error-class');   
+    var id = $(this).attr('id');  
+    $("#"+id+"-error").html(''); 
+  });
+    
+  $(".flatpickr-input, #eventdate, #category, #subcategory").change(function(){
+    $(this).removeClass('error-class');   
+    var id = $(this).attr('id');    
+    $("#"+id+"-error").html('');
+  });   
+  
+  $(".note-editable").click(function(){ 
+    $("#description-error").hide(); 
+  });    
+ 
+    $("#upload-error").hide();   
+    $(".upload-block").hide(); 
+    $('#cover-preview').show();
+    $(".preview-croper").show(); 
+    
+}); 
+
+function validatePot()
+{
+  var potname = $("#potname").val();
+  var organizer = $("#organizer").val();
+  var eventdate = $("#eventdate").val();
+  var category = $("#category").val();
+  var subcategory = $("#subcategory").val(); 
+  var description = $('.js-summernote-editor').summernote('code');
+  var cover = $("#cover-preview").attr("src");
+  submit = true;
+  
+  if(!potname){
+    $('#potname').addClass('error-class');
+    $("#potname-error").html($('#potname').data('msg')).show();
+    submit = false;
+  }
+  
+  if(!organizer){
+    $('#organizer').addClass('error-class'); 
+    $("#organizer-error").html($('#organizer').data('msg')).show();
+    submit = false;
+  }
+   
+  if(!eventdate){ 
+    $('.js-range-datepicker.flatpickr-input.input').addClass('error-class');
+    $("#eventdate-error").html($('#eventdate').data('msg')).show();
+    submit = false;
+  }
+  
+  if(!category){
+    $('#category').addClass('error-class'); 
+    $("#category-error").html($('#category').data('msg')).show();
+    submit = false;
+  }
+  
+  if(!subcategory){ 
+    $('#subcategory').addClass('error-class'); 
+    $("#subcategory-error").html($('#subcategory').data('msg')).show();
+    submit = true;  
+  } 
+  
+  if(description=='<p><br></p>' || description==''){
+    $("#description-error").html($('.js-summernote-editor').data('msg')).show();
+    submit = false;   
+  }   
+   
+  if(submit == true){ 
+     
+    editPot();
+  } 
+   
+  return false;
+}
+
+</script>   

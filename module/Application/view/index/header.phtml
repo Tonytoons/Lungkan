@@ -1,0 +1,175 @@
+<!-- ========== HEADER ========== -->
+<!--
+<header id="header" class="u-header u-header--abs-top-md u-header--bg-transparent u-header--show-hide-md"
+      data-header-fix-moment="500"
+      data-header-fix-effect="slide">
+-->
+
+<header id="header" class="u-header u-header--abs-top-md u-header--bg-transparent u-header--show-hide-md"
+      data-header-fix-moment="500"
+      data-header-fix-effect="slide"> 
+    <div class="u-header__section"> 
+        <!-- Topbar -->
+        <div class="container u-header__hide-content pt-2">
+            <div class="d-flex align-items-center">
+                <!-- Language -->
+                <div class="position-relative">
+                    <a id="languageDropdownInvoker" class="dropdown-nav-link dropdown-toggle d-flex align-items-center" href="javascript:;" role="button" aria-controls="languageDropdown" aria-haspopup="true" aria-expanded="false" data-unfold-event="hover" data-unfold-target="#languageDropdown"
+                        data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp" data-unfold-animation-out="fadeOut">
+                       
+                       <img class="dropdown-item-icon" src="<?=$this->url('home');?>assets/vendor/flag-icon-css/flags/4x3/<?=($lang=='th')?'th':'us';?>.svg" alt="SVG">
+                       <span class="d-inline-block d-sm-none"><?=($lang=='th')?'TH':'EN';?></span>
+                       <span class="d-none d-sm-inline-block"><?=($lang=='th')?'Thailand (TH)':'English (EN)';?></span>
+                       
+                    </a> 
+  
+                    <div id="languageDropdown" class="dropdown-menu dropdown-unfold" aria-labelledby="languageDropdownInvoker">
+                        <a class="dropdown-item <?=($lang=='th')?'active':'';?>" href="javascript:switchLang('th');">Thailand</a>
+                        <a class="dropdown-item <?=($lang=='en')?'active':'';?>" href="javascript:switchLang('en');">English</a> 
+                    </div>  
+                </div>  
+                <!-- End Language -->
+
+                <div class="ml-auto">
+                    <!-- Links -->
+                    <div class="d-none d-sm-inline-block ml-sm-auto">
+                        <ul class="list-inline mb-0" style="display:none;">
+                            <li class="list-inline-item mr-0">
+                                <a class="u-header__navbar-link" href="../pages/help.html">Help</a>
+                            </li>
+                            <li class="list-inline-item mr-0">
+                                <a class="u-header__navbar-link" href="../pages/contacts-agency.html">Contacts</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Links -->
+                </div>
+
+                <ul class="list-inline ml-2 mb-0">
+                    <!-- Account Login -->
+                    <?php
+                    if(0){
+                    ?>
+                    <li class="list-inline-item">
+                        <!-- Account Sidebar Toggle Button -->
+                        <a id="sidebarNavToggler" class="btn btn-xs btn-icon btn-text-secondary" href="javascript:;" role="button" aria-controls="sidebarContent" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarContent"
+                            data-unfold-type="css-animation" data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight" data-unfold-duration="500">
+                            <?=!empty($this->Users->name)?$this->Users->name:'';?><span class="fas fa-user btn-icon__inner font-size-1"></span>
+                        </a>
+                        <!-- End Account Sidebar Toggle Button -->
+                    </li>
+                    <?php
+                    }
+                    
+                    ?> 
+                    
+                    
+                    <?php
+                    if(!empty($this->Users->id)){ 
+                    ?>
+                    <!-- End Account Login -->
+                    <li class="list-inline-item">
+                      <!-- Account Sidebar Toggle Button -->
+                      <a class="btn btn-xs btn-text-secondary u-sidebar--account__toggle-bg ml-1 target-of-invoker-has-unfolds" href="<?=$this->url('home').$this->lang;?>/mypot/">
+                        <span class="position-relative">
+                          <span class="u-sidebar--account__toggle-text"><?=!empty($this->Users->name)?$this->Users->name:'';?></span>
+                          <?php
+                          if(!empty($this->Users->image)){
+                          ?>
+                          <img class="u-sidebar--account__toggle-img" src="<?=$this->Users->image;?>" alt="<?=!empty($this->Users->name)?$this->Users->name:'';?>">
+                          <?php
+                          }else{ 
+                          ?>
+                          <img class="u-sidebar--account__toggle-img" src="<?=$this->url('home');?>assets/img/avatar-100.jpg" alt="<?=!empty($this->Users->name)?$this->Users->name:'';?>">
+                          <?php
+                          } 
+                          ?>
+                        </span>
+                      </a> 
+                      <!-- End Account Sidebar Toggle Button -->
+                    </li>
+                    <?php
+                    }else{
+                    ?>
+                    <li class="list-inline-item"> 
+                        <span class="fas fa-user font-size-1"></span>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+        <!-- End Topbar -->
+
+        <div id="logoAndNav" class="container">
+            <!-- Nav -->
+            <nav class="js-mega-menu navbar navbar-expand-md u-header__navbar u-header__navbar--no-space">
+                <!-- Logo -->
+                <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center" href="<?=$this->url('home').$this->lang;?>/" aria-label="Front">
+                    <span class="u-header__navbar-brand-text">Prizzit</span>
+                </a>
+                <!-- End Logo -->
+
+                <!-- Responsive Toggle Button -->
+                <button type="button" class="navbar-toggler btn u-hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+                    <span id="hamburgerTrigger" class="u-hamburger__box">
+                      <span class="u-hamburger__inner"></span>
+                    </span>
+                </button>
+                <!-- End Responsive Toggle Button -->
+
+                <!-- Navigation -->
+                <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
+                    <ul class="navbar-nav u-header__navbar-nav navbar-left">
+                        <li class="nav-item u-header__nav-item"> 
+                            <a class="nav-link" href="<?=$this->url('home').$this->lang;?>/projects/"><?=$this->translate('Projects & Causes'); ?></a>
+                        </li> 
+                        <li class="nav-item u-header__nav-item"> 
+                            <a class="nav-link" href="<?=$this->url('home').$this->lang;?>/category/"><?=$this->translate('Category'); ?></a>
+                        </li>
+                    </ul>   
+                    <ul class="navbar-nav u-header__navbar-nav navbar-right">
+                        <li class="nav-item u-header__nav-item">
+                            <a class="nav-link" href="<?=$this->url('home').$this->lang;?>/how-to-work/"><?=$this->translate('How does it work ?'); ?></a>
+                        </li>
+                        <li class="nav-item u-header__nav-item">
+                            <?php
+                            if(empty($this->Users->id)){  
+                                if($action!='login' && $action!='register' && $action!='forgotpass' &&  $action!='create'){   
+                                ?> 
+                                  <a class="nav-link" href="#" data-toggle="modal" data-target="#login-modal"><?=$this->translate('Login'); ?></a>
+                                <?php
+                                }else{     
+                                ?>
+                                  <a class="nav-link" href="<?=$this->url('home').$this->lang;?>/login/"><?=$this->translate('Login'); ?></a>
+                                <?php
+                                } 
+                            }else{  
+                            ?> 
+                                <!--<a class="nav-link" href="javasrcipt:void(0);" onclick="logOut();"><?=$this->translate('Logout'); ?></a>-->
+                            <?php 
+                            }
+                            ?>
+                        </li>
+                        
+                        <!-- Button -->
+                        <li class="nav-item u-header__nav-item mobile-site">
+                            <a class="btn btn-sm btn-primary transition-3d-hover" href="<?=$this->url('home').$this->lang;?>/create/">
+                            <?=$this->translate('Create a pot'); ?>
+                            </a>
+                        </li>
+                        <!-- End Button -->
+                        
+                        
+                        
+                    </ul>
+                </div>
+                <!-- End Navigation -->
+            </nav>
+            <!-- End Nav -->
+        </div>
+    </div>
+</header>
+<!-- ========== END HEADER ========== -->
+ 

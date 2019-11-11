@@ -1,0 +1,115 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main class="content" id="content" role="main">
+    <div class="container space-2 space-md-2">
+        <div class="row">
+            <div class="col-sm-10 col-md-10 col-lg-10 ml-md-auto mr-md-auto">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <?php
+                        include("topedit.phtml"); 
+                        ?> 
+                    </div>
+                </div>
+                
+                <div class="row">
+                  
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <!-- Card -->
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+
+                                <div class="row"> 
+                                    <div class="col-sm-11 col-md-11 col-lg-11 ml-md-auto mr-md-auto">
+
+                                        <form class="js-validate mx-md-auto" name="messageFrom" id="messageFrom" action="" method="post" novalidate="novalidate">
+                                            <div class="row">
+                                              
+                                              <div class="col-sm-12 col-md-12 col-lg-12 mt-5 ml-md-auto mr-md-auto">
+                                                  <h4 class="form-text mb-5 mt-3"><?=$this->translate('Thank you for your contribution of');?> <?=number_format($tdetail['amount'],2);?> <?=$this->translate('THB to');?> <?=$detail['name'];?></h4>
+                                              </div>
+                                              
+                                              <div class="col-12 col-sm-8 col-md-8 col-lg-8 ml-md-auto mr-md-auto">
+                                                
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                      <div class="form-group">
+                                                        <textarea type="textarea" name="message" id="message" class="form-control" rows="5" data-msg="<?=$this->translate('Please enter message.');?>" placeholder="<?=$this->translate('type a message');?>"></textarea>
+                                                      </div> 
+                                                    </div>  
+                                                </div>
+                                                  
+                                                <div class="row">
+                                                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 ml-md-auto mr-md-auto text-center mt-5 mb-5"> 
+                                                      <button type="" class="btn btn-primary btn-block btn-message" name=""><?=$this->translate('Send a message to organizer');?></button>
+                                                  </div>
+                                                </div>
+                                                 
+                                              </div>  
+                                            </div> 
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Card -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript"> 
+var id = '<?=$id;?>';
+var tid = '<?=$tid;?>'; 
+$("form[name='messageFrom']").validate({ 
+  rules: { 
+    message:"required",
+  },   
+  messages: { 
+    message:$('#message').data('msg'),
+  },    
+  submitHandler: function(form) { 
+    
+    btn_loader = $('.btn-message');   
+    $('.btn-message').buttonLoader('start'); 
+    $.ajax({    
+        url: base_url+'thankyou/'+id+'/?act=send_organizer&tid='+tid+'&rd='+makeid(), 
+        type: "POST",    
+        dataType: "json", 
+        data: $(form).serialize(),    
+        cache: false,              
+        processData: false,      
+        success: function(data) { 
+          console.log(data); 
+          setTimeout(function(){    
+    				$(btn_loader).buttonLoader('stop');	
+    		 	},500);
+    		 	
+    			if(data.status==200){  
+    				window.location = base_url+'?rd='+makeid();
+    			}else{ 
+    				alert_error(error_alert);
+    				setTimeout(function(){   
+        				$(btn_loader).buttonLoader('stop');	
+        		 	},100);    
+    			} 
+        }, 
+        error: function(e) {
+          setTimeout(function(){   
+  				  $(btn_loader).buttonLoader('stop');	
+  		 	  },100);    
+		      alert_error(error_alert);  
+        } 
+    });
+    return false; 
+  }, 
+  highlight: function(element, errorClass, validClass) {
+    $(element).removeClass('success-class').addClass('error-class');
+  },
+  unhighlight: function(element, errorClass, validClass) {
+    $(element).removeClass('error-class').addClass('success-class');
+  }
+}); 
+
+</script>

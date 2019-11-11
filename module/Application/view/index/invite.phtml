@@ -1,0 +1,159 @@
+<!-- ========== MAIN CONTENT ========== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<main class="content" id="content" role="main">
+    <div class="container space-2 space-md-2">
+        <div class="row">
+            <div class="col-sm-10 col-md-10 col-lg-10 ml-md-auto mr-md-auto">
+               
+                <?php
+                include("topedit.phtml"); 
+                ?> 
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <?php 
+                        include("menu.phtml");
+                        ?>
+                    </div>
+                    <div class="col-sm-9 col-md-9 col-lg-9">
+                        <!-- Card -->
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <form class="mt-0" id="inviteform" name="inviteform" action="" onsubmit="return false;" method="post" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                            <h3 class="h3 mb-5 mt-2"><?=$this->translate('Send invite by email.'); ?></h3>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="<?=$this->translate('Please enter subject.'); ?>" data-msg="<?=$this->translate('Please enter subject.'); ?>">
+                                            </div> 
+                                            <div class="form-group">
+                                                <textarea class="form-control" name="email" id="email" rows="5" placeholder="<?=$this->translate('Please enter email separated by coma'); ?>"  data-msg="<?=$this->translate('Please enter email separated by coma'); ?>"></textarea>
+                                            </div> 
+                                            <div class="form-group mt-5">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                  <input type="radio" id="remind1" name="remind" value="1" class="custom-control-input">
+                                                  <label class="custom-control-label" for="remind1"><?=$this->translate('Remind in 3 days'); ?></label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                  <input type="radio" id="remind2" name="remind" value="2"  class="custom-control-input">
+                                                  <label class="custom-control-label" for="remind2"><?=$this->translate('Remind in 1 week'); ?></label>
+                                                </div>
+                                            </div> 
+                                        </div>   
+                                        <div class="col-sm-12 col-md-12 col-lg-12 text-left mt-3 mb-5">
+                                            <button type="submit"  class="btn btn-primary btn-invite"><i class="fa fa-paper-plane" aria-hidden="true"></i> <?=$this->translate('Send invite'); ?></button>
+                                        </div> 
+                                    </div>  
+                                     
+                                    <div class="row"> 
+                                        <div class="col-sm-8 col-md-8 col-lg-8 ml-md-auto mr-md-auto text-center">
+                                            <form class="mb-3"> 
+                                                <small class="form-text text-muted mb-3 mt-3"><?=$this->translate('Invite your friends to participate'); ?></small>
+                                                <div class="js-focus-state mb-2">
+                                                    <div class="input-group">
+                                                        <input id="referralLink" type="text" class="form-control" value="<?=$webURL;?>/<?=$lang;?>/view/<?=!empty($detail['slugify'])?$detail['slugify']:$id;?>">
+                                                        <div class="input-group-append">
+                                                            <a class="js-clipboard input-group-text" href="javascript:;" id="btn-clipboard" data-clipboard-action="copy" data-clipboard-target="#referralLink" data-default-class="fas fa-clone" data-success-class="fas fa-check">
+                                                                <span id="linkIcon" class="fa-clone fas"></span>
+                                                            </a> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>  
+                                            
+                                            <div class="row mt-3 mb-3">
+                                                <div class="col-sm-10 col-md-10 col-lg-10 ml-md-auto mr-md-auto">
+                                                  <div class="text-center px-lg-3">
+                                                    <a href="#" class="icon-share"><span class="fab fa-facebook-f fa-3x"></span></a>
+                                                    <a href="#" class="icon-share"><span class="fab fa-whatsapp fa-3x"></span></a>
+                                                    <a href="#" class="icon-share"><span class="fa fa-envelope fa-3x"></span></a>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+<script type="text/javascript">  
+var id = <?=!empty($this->id)?$this->id:0;?>;  
+$(document).on('ready', function() { 
+    
+    //var clipboard = new ClipboardJS('#btn-clipboard');
+    var clipboard = new ClipboardJS('#btn-clipboard', {
+        text: function() { 
+            return document.querySelector('input[id=referralLink]').value;
+        } 
+    });
+    clipboard.on('success', function(e) { 
+      
+      document.getElementById("referralLink").select();
+     // e.clearSelection();
+    });
+});
+$("form[name='inviteform']").validate({ 
+  rules: { 
+     subject:"required",
+     email: "required",
+  },    
+  messages: {         
+    name: $('#name').data('msg'),
+    email: $('#email').data('msg')
+  },    
+  submitHandler: function(form) {
+    btn_loader = $('.btn-invite');  
+    $('.btn-invite').buttonLoader('start'); 
+    $.ajax({   
+        url: base_url+'invite/'+id+'/?act=invite&rd='+makeid(), 
+        type: "POST",   
+        dataType: "json",  
+        data: $(form).serialize(),    
+        cache: false,              
+        processData: false,      
+        success: function(data) { 
+            
+            setTimeout(function(){    
+  				$(btn_loader).buttonLoader('stop');	
+  		 	},500);
+  		 	
+  			if(data.status==200){      
+  			    
+  				window.location = base_url+'invitelist/'+id+'/?&rd='+makeid();
+  			 	
+  			}else{       
+  			    
+  				alert_error(error_alert);
+  				setTimeout(function(){   
+      				$(btn_loader).buttonLoader('stop');	
+      		 	},100);    
+  			} 
+			
+        },  
+        error: function(e) {
+            console.log(e);
+            setTimeout(function(){   
+				$(btn_loader).buttonLoader('stop');	
+		 	},100);    
+		    alert_error(error_alert);  
+        } 
+    });   
+    return false;  
+    
+  }, 
+  highlight: function(element, errorClass, validClass) {
+    $(element).removeClass('success-class').addClass('error-class');
+  },
+  unhighlight: function(element, errorClass, validClass) {
+    $(element).removeClass('error-class').addClass('success-class');
+  }
+}); 
+</script> 
