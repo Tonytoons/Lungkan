@@ -7,7 +7,7 @@ try
     header("cache-control: must-revalidate");
     $offset = 60 * 60;
     $expire = "expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
-    header($expire);
+    //header($expire);
     header('Vary: Accept-Encoding');
     header("Access-Control-Allow-Origin: *");
     error_reporting(E_ALL|E_STRICT);
@@ -21,15 +21,14 @@ try
         return false;
     } 
     
-    if (strpos($_SERVER['HTTP_HOST'], 'www') === false && $_SERVER['HTTP_HOST'] =='prizzit.com')
-    { echo 'rrr';
-       header("Location:"."https://www.".$_SERVER['HTTP_HOST']. $_SERVER['REQUEST_URI']);
-       exit();   
-    }     
-
-    if($_SERVER['REQUEST_URI']=='/'){  
-        header("Location:"."https://".$_SERVER['HTTP_HOST'].'/th/');
-        exit(); 
+    if ( (strpos($_SERVER['HTTP_HOST'], 'www') === false) && ($_SERVER['HTTP_HOST'] =='prizzit.com') )
+    {
+        header("Location:"."https://www.".$_SERVER['HTTP_HOST']. $_SERVER['REQUEST_URI']); exit();
+    }
+    
+    if($_SERVER['REQUEST_URI'] == '/public/')
+    {
+        header("Location: /public/th/"); exit();
     }
     
     // Setup autoloading
