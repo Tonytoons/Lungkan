@@ -404,14 +404,14 @@ class HeadLink extends Placeholder\Container\AbstractStandalone
                 $conditionalStylesheet = null;
             }
         }
-
+        /*
         if ($args && is_array($args[0])) {
             $extras = array_shift($args);
             $extras = (array) $extras;
         }
 
-        $attributes = compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras');
-
+        $attributes = compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras');*/
+        $attributes = compact('rel', 'type', 'href', 'media', 'conditionalStylesheet');
         return $this->createData($attributes);
     }
 
