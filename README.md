@@ -113,7 +113,7 @@ sudo apt-get install php7.0-simplexml
 sudo service apache2 restart
 
 
-#PHP 7.1
+#PHP 7.3
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get update -y
 
